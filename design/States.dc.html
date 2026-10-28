@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SEKOLA — Status Layar</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="width: 1440px; height: 844px; box-sizing: border-box; background: #F8FAFC; font-family: Inter, system-ui, sans-serif; color: #172033; padding: 56px 64px; display: flex; flex-direction: column; gap: 28px">
+  <div style="display: flex; justify-content: space-between; align-items: flex-end">
+    <div style="display: flex; flex-direction: column; gap: 6px"><h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Status layar</h1><span style="font-size: 14px; color: #64748B">Satu pola untuk console, workspace, dan mobile. Semua memakai token yang sama.</span></div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; flex: 1">
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <span style="font-size: 12px; font-weight: 600; color: #64748B; letter-spacing: 0.04em">LOADING</span>
+      <div style="display: flex; flex-direction: column; gap: 12px" aria-busy="true" aria-label="Memuat data siswa">
+        <span style="display: block; width: 60%; height: 18px; border-radius: 6px; background: #E2E8F0"></span>
+        <span style="display: block; width: 40%; height: 12px; border-radius: 6px; background: #F1F5F9"></span>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 12px">
+          <span style="display: flex; gap: 10px; align-items: center"><span style="width: 32px; height: 32px; border-radius: 99px; background: #F1F5F9"></span><span style="flex: 1; height: 12px; border-radius: 6px; background: #F1F5F9; display: block"></span></span>
+          <span style="display: flex; gap: 10px; align-items: center"><span style="width: 32px; height: 32px; border-radius: 99px; background: #F1F5F9"></span><span style="flex: 1; height: 12px; border-radius: 6px; background: #F1F5F9; display: block"></span></span>
+          <span style="display: flex; gap: 10px; align-items: center"><span style="width: 32px; height: 32px; border-radius: 99px; background: #F1F5F9"></span><span style="flex: 1; height: 12px; border-radius: 6px; background: #F1F5F9; display: block"></span></span>
+          <span style="display: flex; gap: 10px; align-items: center"><span style="width: 32px; height: 32px; border-radius: 99px; background: #F1F5F9"></span><span style="flex: 1; height: 12px; border-radius: 6px; background: #F1F5F9; display: block"></span></span>
+        </div>
+      </div>
+      <span style="margin-top: auto; font-size: 13px; color: #64748B; line-height: 20px">Skeleton mengikuti bentuk konten akhir. Lebih dari 8 detik? Tampilkan "Masih memuat…" beserta tombol batal.</span>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <span style="font-size: 12px; font-weight: 600; color: #64748B; letter-spacing: 0.04em">KOSONG</span>
+      <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center">
+        <span style="width: 64px; height: 64px; border-radius: 16px; background: #F1F5F9; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="1.8" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"></path><path d="M9 12h6M9 16h4"></path></svg></span>
+        <span style="font-size: 16px; font-weight: 600">Belum ada tugas</span>
+        <span style="font-size: 14px; color: #64748B; line-height: 20px; max-width: 240px">Buat tugas pertama untuk Kelas VIII-A. Siswa akan menerima notifikasi.</span>
+        <button type="button" style="height: 40px; padding: 0 16px; border-radius: 6px; border: 0; background: #2563EB; color: #FFFFFF; font: 600 14px Inter, sans-serif">Buat Tugas</button>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <span style="font-size: 12px; font-weight: 600; color: #64748B; letter-spacing: 0.04em">SUKSES</span>
+      <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center">
+        <span style="width: 64px; height: 64px; border-radius: 99px; background: #DCFCE7; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>
+        <span style="font-size: 16px; font-weight: 600">Rapor berhasil diterbitkan</span>
+        <span style="font-size: 14px; color: #64748B; line-height: 20px; max-width: 240px">34 rapor Semester Ganjil VIII-A kini bisa dilihat orang tua di aplikasi SEKOLA.</span>
+        <div style="display: flex; gap: 8px">
+          <button type="button" style="height: 40px; padding: 0 14px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 14px Inter, sans-serif; color: #172033">Unduh PDF</button>
+          <button type="button" style="height: 40px; padding: 0 14px; border-radius: 6px; border: 0; background: #2563EB; color: #FFFFFF; font: 600 14px Inter, sans-serif">Selesai</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 20px">
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1">
+        <span style="font-size: 12px; font-weight: 600; color: #64748B; letter-spacing: 0.04em">ERROR</span>
+        <span style="width: 44px; height: 44px; border-radius: 99px; background: #FEE2E2; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2.2" aria-hidden="true"><path d="M12 8v5M12 16.5v.5"></path><circle cx="12" cy="12" r="9"></circle></svg></span>
+        <span style="font-size: 16px; font-weight: 600">Data tidak dapat dimuat</span>
+        <span style="font-size: 14px; color: #64748B; line-height: 20px">Periksa koneksi internet Anda lalu coba lagi. Kode: NET-504.</span>
+        <button type="button" style="align-self: flex-start; height: 40px; padding: 0 16px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 14px Inter, sans-serif; color: #172033">Coba lagi</button>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1">
+        <span style="font-size: 12px; font-weight: 600; color: #64748B; letter-spacing: 0.04em">AKSES DITOLAK · TENANT</span>
+        <span style="width: 44px; height: 44px; border-radius: 99px; background: #F1F5F9; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14213D" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></span>
+        <span style="font-size: 16px; font-weight: 600">Anda tidak punya akses ke sekolah ini</span>
+        <span style="font-size: 14px; color: #64748B; line-height: 20px">Akun Anda belum terdaftar di SMK Bina Karya. Hubungi admin sekolah tersebut untuk meminta akses.</span>
+        <a href="Login.dc.html" style="font-size: 14px; font-weight: 600; text-decoration: none">Kembali ke daftar sekolah</a>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

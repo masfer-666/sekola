@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SEKOLA Platform Console — Detail Tenant</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1180px; font-family: Inter, system-ui, sans-serif; color: #172033; background: #F8FAFC">
+
+  <nav aria-label="Navigasi console" style="flex: 1 1 248px; background: #14213D; color: #CBD5E1; padding: 20px 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 4px 8px"><svg width="32" height="32" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#FFFFFF"></rect><path d="M27 11H17.5a4.5 4.5 0 0 0 0 9h5a4.5 4.5 0 0 1 0 9H12" fill="none" stroke="#14213D" stroke-width="4" stroke-linecap="round"></path><circle cx="29" cy="11" r="3.2" fill="#14B8A6"></circle></svg><span style="font-size: 17px; font-weight: 700; letter-spacing: 0.06em; color: #FFFFFF">SEKOLA</span></div>
+    <span style="align-self: flex-start; margin-left: 8px; font-size: 11px; font-weight: 600; color: #14213D; background: #5EEAD4; padding: 3px 8px; border-radius: 999px">Platform Console</span>
+    <div style="display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Console.dc.html" style="padding: 9px 10px; border-radius: 6px; color: #CBD5E1; text-decoration: none">Ringkasan</a>
+      <a href="ConsoleTenant.dc.html" style="padding: 9px 10px; border-radius: 6px; background: #1E3A8A; color: #FFFFFF; text-decoration: none; font-weight: 500">Direktori Sekolah</a>
+      <a href="ConsoleOnboarding.dc.html" style="padding: 9px 10px; border-radius: 6px; color: #CBD5E1; text-decoration: none">Onboarding Sekolah</a>
+      <a href="ConsolePlans.dc.html" style="padding: 9px 10px; border-radius: 6px; color: #CBD5E1; text-decoration: none">Paket Langganan</a>
+      <a href="ConsoleBilling.dc.html" style="padding: 9px 10px; border-radius: 6px; color: #CBD5E1; text-decoration: none">Penagihan</a>
+      <a href="ConsoleAnalytics.dc.html" style="padding: 9px 10px; border-radius: 6px; color: #CBD5E1; text-decoration: none">Analitik Penggunaan</a>
+      <a href="ConsolePlans.dc.html" style="padding: 9px 10px; border-radius: 6px; color: #CBD5E1; text-decoration: none">Fitur &amp; Hak Akses</a>
+      <a href="ConsoleAnalytics.dc.html" style="padding: 9px 10px; border-radius: 6px; color: #CBD5E1; text-decoration: none">Status Integrasi</a>
+      <a href="#" style="padding: 9px 10px; border-radius: 6px; color: #CBD5E1; text-decoration: none">Tiket Dukungan</a>
+      <a href="ConsoleConfig.dc.html" style="padding: 9px 10px; border-radius: 6px; color: #CBD5E1; text-decoration: none">Log Audit</a>
+      <a href="ConsoleConfig.dc.html" style="padding: 9px 10px; border-radius: 6px; color: #CBD5E1; text-decoration: none">Konfigurasi Platform</a>
+    </div>
+  </nav>
+
+  <main style="flex: 999 1 560px; min-width: 0; padding: 24px 32px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+    <nav aria-label="Breadcrumb" style="font-size: 13px; color: #64748B; display: flex; gap: 6px"><a href="Console.dc.html" style="color: #64748B; text-decoration: none">Direktori Sekolah</a><span>/</span><span style="color: #172033; font-weight: 500">SMP Tunas Harapan</span></nav>
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center">
+      <div style="display: flex; align-items: center; gap: 16px">
+        <span style="width: 56px; height: 56px; border-radius: 12px; background: #0E7490; color: #FFFFFF; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center">TH</span>
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <span style="display: flex; align-items: center; gap: 10px"><h1 style="margin: 0; font-size: 22px; font-weight: 600">SMP Tunas Harapan</h1><span style="font-size: 12px; font-weight: 600; color: #15803D; background: #DCFCE7; padding: 3px 8px; border-radius: 999px">Aktif</span></span>
+          <span style="font-size: 13px; color: #64748B">tn-0042 · tunasharapan.sekola.id · NPSN 20212345 · Bandung, Jawa Barat</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <button type="button" style="height: 38px; padding: 0 14px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 13px Inter, sans-serif; color: #172033">Akses dukungan (tercatat di audit)</button>
+        <button type="button" style="height: 38px; padding: 0 14px; border-radius: 6px; border: 1px solid #FCA5A5; background: #FFFFFF; font: 600 13px Inter, sans-serif; color: #B91C1C">Tangguhkan</button>
+      </div>
+    </div>
+
+    <div role="tablist" style="display: flex; gap: 24px; border-bottom: 1px solid #E2E8F0; overflow-x: auto; font-size: 14px">
+      <span style="padding: 10px 0; font-weight: 600; color: #2563EB; border-bottom: 2px solid #2563EB; white-space: nowrap">Langganan &amp; Fitur</span>
+      <span style="padding: 10px 0; color: #64748B; white-space: nowrap">Profil Sekolah</span>
+      <span style="padding: 10px 0; color: #64748B; white-space: nowrap">Penggunaan</span>
+      <span style="padding: 10px 0; color: #64748B; white-space: nowrap">Penagihan</span>
+      <span style="padding: 10px 0; color: #64748B; white-space: nowrap">Admin Sekolah</span>
+      <span style="padding: 10px 0; color: #64748B; white-space: nowrap">Log Audit</span>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+      <div style="flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 16px; font-weight: 600">Paket langganan</span><a href="#" style="font-size: 13px; font-weight: 600; text-decoration: none">Ubah paket</a></div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px">
+            <div style="border: 1px solid #E2E8F0; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; font-weight: 600">Dasar</span><span style="font-size: 13px; color: #64748B">Rp8.000 / siswa / bln</span><span style="font-size: 12px; color: #64748B">Absensi, nilai, rapor, pengumuman</span></div>
+            <div style="border: 2px solid #2563EB; background: #EFF6FF; border-radius: 10px; padding: 15px; display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 600">Pro<span style="font-size: 11px; color: #1D4ED8">Paket saat ini</span></span><span style="font-size: 13px; color: #475569">Rp12.000 / siswa / bln</span><span style="font-size: 12px; color: #475569">+ Keuangan, LMS, perpustakaan, aplikasi orang tua</span></div>
+            <div style="border: 1px solid #E2E8F0; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; font-weight: 600">Enterprise</span><span style="font-size: 13px; color: #64748B">Harga khusus</span><span style="font-size: 12px; color: #64748B">+ Multi-kampus, SSO, SLA, API</span></div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 13px; color: #64748B">
+            <span>Siklus: <b style="color: #172033">Tahunan</b></span>
+            <span>Periode: <b style="color: #172033">1 Jul 2026 – 30 Jun 2027</b></span>
+            <span>Tagihan berikutnya: <b style="color: #172033; font-variant-numeric: tabular-nums">Rp58.272.000</b> pada 1 Jul 2027</span>
+          </div>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden">
+          <div style="padding: 16px 20px; display: flex; justify-content: space-between; align-items: center"><span style="font-size: 16px; font-weight: 600">Fitur yang aktif</span><span style="font-size: 12px; color: #64748B">Mengikuti paket Pro · override manual tercatat di audit</span></div>
+          <sc-for list="{{ features }}" as="f" hint-placeholder-count="8">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 20px; border-top: 1px solid #E2E8F0">
+              <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">{{ f.name }}</span><span style="font-size: 12px; color: #64748B">{{ f.note }}</span></span>
+              <span style="{{ f.track }}" role="switch" aria-checked="{{ f.on }}" aria-label="{{ f.name }}"><span style="{{ f.knob }}"></span></span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+          <span style="font-size: 16px; font-weight: 600">Penggunaan</span>
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; font-size: 13px"><span>Siswa aktif</span><span style="font-variant-numeric: tabular-nums">412 / 500</span></span><span style="height: 8px; background: #E2E8F0; border-radius: 99px; display: block"><span style="display: block; width: 82%; height: 100%; background: #14B8A6; border-radius: 99px"></span></span></div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; font-size: 13px"><span>Akun pengguna</span><span style="font-variant-numeric: tabular-nums">1.214</span></span><span style="font-size: 12px; color: #64748B">48 staf · 412 siswa · 754 orang tua</span></div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; font-size: 13px"><span>Penyimpanan</span><span style="font-variant-numeric: tabular-nums">31 / 50 GB</span></span><span style="height: 8px; background: #E2E8F0; border-radius: 99px; display: block"><span style="display: block; width: 62%; height: 100%; background: #14B8A6; border-radius: 99px"></span></span></div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; font-size: 13px"><span>Kuota notifikasi WA</span><span style="font-variant-numeric: tabular-nums">8.940 / 10.000</span></span><span style="height: 8px; background: #E2E8F0; border-radius: 99px; display: block"><span style="display: block; width: 89%; height: 100%; background: #D97706; border-radius: 99px"></span></span><span style="font-size: 12px; color: #B45309">Hampir habis, reset 1 Nov 2026</span></div>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+          <span style="font-size: 16px; font-weight: 600">Invoice</span>
+          <div style="display: flex; justify-content: space-between; font-size: 13px"><span>INV/2026/07/0042</span><span style="font-variant-numeric: tabular-nums">Rp58.272.000</span><span style="font-size: 12px; font-weight: 600; color: #15803D; background: #DCFCE7; padding: 2px 8px; border-radius: 999px">Lunas</span></div>
+          <div style="display: flex; justify-content: space-between; font-size: 13px"><span>INV/2026/09/0042-A</span><span style="font-variant-numeric: tabular-nums">Rp1.500.000</span><span style="font-size: 12px; font-weight: 600; color: #B45309; background: #FEF3C7; padding: 2px 8px; border-radius: 999px">Menunggu</span></div>
+          <span style="font-size: 12px; color: #64748B">Add-on: tambahan 5.000 notifikasi WA</span>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 16px; font-weight: 600">Onboarding baru</span><span style="font-size: 12px; color: #64748B">MI Nurul Huda</span></div>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px">
+            <span style="display: flex; gap: 10px; align-items: center"><span style="width: 20px; height: 20px; border-radius: 99px; background: #14B8A6; color: #FFFFFF; font-size: 11px; display: flex; align-items: center; justify-content: center">✓</span>Profil &amp; NPSN</span>
+            <span style="display: flex; gap: 10px; align-items: center"><span style="width: 20px; height: 20px; border-radius: 99px; background: #14B8A6; color: #FFFFFF; font-size: 11px; display: flex; align-items: center; justify-content: center">✓</span>Paket &amp; masa uji coba</span>
+            <span style="display: flex; gap: 10px; align-items: center; font-weight: 600"><span style="width: 20px; height: 20px; border-radius: 99px; border: 2px solid #2563EB; color: #2563EB; font-size: 11px; display: flex; align-items: center; justify-content: center; box-sizing: border-box">3</span>Undang admin sekolah</span>
+            <span style="display: flex; gap: 10px; align-items: center; color: #64748B"><span style="width: 20px; height: 20px; border-radius: 99px; border: 1px solid #CBD5E1; font-size: 11px; display: flex; align-items: center; justify-content: center; box-sizing: border-box">4</span>Impor data awal</span>
+            <span style="display: flex; gap: 10px; align-items: center; color: #64748B"><span style="width: 20px; height: 20px; border-radius: 99px; border: 1px solid #CBD5E1; font-size: 11px; display: flex; align-items: center; justify-content: center; box-sizing: border-box">5</span>Aktivasi tenant</span>
+          </div>
+          <button type="button" style="height: 38px; border-radius: 6px; border: 0; background: #2563EB; color: #FFFFFF; font: 600 13px Inter, sans-serif">Lanjutkan onboarding</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const list = [
+      ['Absensi &amp; Jadwal Pelajaran', 'Termasuk semua paket', true],
+      ['Nilai &amp; Rapor', 'Kurikulum Merdeka & K13', true],
+      ['Keuangan & Tagihan', 'Invoice, pembayaran, pengingat', true],
+      ['Materi Pembelajaran & Tugas', 'LMS dasar, kuota 50 GB', true],
+      ['Perpustakaan & Fasilitas', 'Peminjaman buku & ruang', true],
+      ['Aplikasi Orang Tua', 'iOS & Android', true],
+      ['Penerimaan Siswa Baru (PPDB)', 'Add-on, belum dibeli', false],
+      ['Single Sign-On (SSO)', 'Hanya paket Enterprise', false]
+    ];
+    return {
+      features: list.map(([name, note, on]) => ({
+        name: name.replace(/&amp;/g, '&'), note, on: on ? 'true' : 'false',
+        track: 'width:40px;height:22px;border-radius:99px;padding:2px;box-sizing:border-box;display:flex;flex-shrink:0;justify-content:' + (on ? 'flex-end' : 'flex-start') + ';background:' + (on ? '#2563EB' : '#CBD5E1'),
+        knob: 'width:18px;height:18px;border-radius:99px;background:#FFFFFF;display:block'
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

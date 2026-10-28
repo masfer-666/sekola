@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Workspace Sekolah — Keuangan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1120px; font-family: Inter, system-ui, sans-serif; color: #172033; background: #F8FAFC">
+
+  <nav aria-label="Navigasi ringkas" style="flex: 0 0 72px; background: #FFFFFF; border-right: 1px solid #E2E8F0; padding: 16px 0; display: flex; flex-direction: column; align-items: center; gap: 8px">
+    <span title="SMP Tunas Harapan" style="width: 40px; height: 40px; border-radius: 10px; background: #0E7490; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 12px">TH</span>
+    <a href="Workspace.dc.html" aria-label="Dashboard" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg></a>
+    <a href="Students.dc.html" aria-label="Data Siswa" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c1-4 4-6 7-6s6 2 7 6M17 11a3 3 0 1 0 0-6M22 21c-.5-2.5-2-4-4-5"></path></svg></a>
+    <a href="Attendance.dc.html" aria-label="Absensi" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3 8-8"></path><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"></path></svg></a>
+    <a href="Grades.dc.html" aria-label="Nilai dan Rapor" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"></path></svg></a>
+    <a href="Finance.dc.html" aria-label="Tagihan" aria-current="page" style="width: 44px; height: 44px; border-radius: 8px; background: #ECFEFF; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"></path><path d="M9 8h6M9 12h6"></path></svg></a>
+    <a href="SchoolSettings.dc.html" aria-label="Pengaturan Sekolah" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"></path></svg></a>
+    <span style="margin-top: auto" title="Didukung oleh SEKOLA"><svg width="24" height="24" viewBox="0 0 40 40" role="img" aria-label="SEKOLA"><rect width="40" height="40" rx="10" fill="#14213D"></rect><path d="M27 11H17.5a4.5 4.5 0 0 0 0 9h5a4.5 4.5 0 0 1 0 9H12" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"></path></svg></span>
+  </nav>
+
+  <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column">
+    <header style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; padding: 14px 32px; background: #FFFFFF; border-bottom: 1px solid #E2E8F0; font-size: 13px">
+      <nav aria-label="Breadcrumb" style="display: flex; gap: 6px; color: #64748B; align-items: center"><span style="display: flex; align-items: center; gap: 6px; padding: 4px 8px; background: #F1F5F9; border-radius: 6px; color: #172033; font-weight: 500"><span style="width: 8px; height: 8px; border-radius: 99px; background: #0E7490"></span>SMP Tunas Harapan</span><span>/</span><span>Keuangan</span><span>/</span><span style="color: #172033; font-weight: 500">Tagihan &amp; Pembayaran</span></nav>
+      <span style="color: #64748B">Akses: Bendahara · Admin Sekolah (lihat)</span>
+    </header>
+
+    <div style="padding: 24px 32px 40px; display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Tagihan &amp; Pembayaran</h1><span style="font-size: 13px; color: #64748B">Periode Oktober 2026 · data demo</span></div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <select aria-label="Periode" style="height: 38px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 10px; font: 500 13px Inter, sans-serif; background: #FFFFFF"><option>Oktober 2026</option><option>September 2026</option></select>
+          <button type="button" style="height: 38px; padding: 0 14px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 13px Inter, sans-serif; color: #172033">Ekspor Laporan</button>
+          <button type="button" style="height: 38px; padding: 0 14px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 13px Inter, sans-serif; color: #172033">Catat Pembayaran Tunai</button>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #64748B">Total tagihan</span><span style="font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums">Rp309.000.000</span><span style="font-size: 12px; color: #64748B">412 siswa · SPP Oktober</span></div>
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #64748B">Terbayar</span><span style="font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums">Rp285.750.000</span><span style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #15803D; font-weight: 500"><span style="width: 80px; height: 6px; border-radius: 99px; background: #E2E8F0; display: block; overflow: hidden"><span style="display: block; width: 92.5%; height: 100%; background: #16A34A"></span></span>92,5%</span></div>
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #64748B">Belum lunas</span><span style="font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums">Rp23.250.000</span><span style="font-size: 12px; color: #B45309; font-weight: 500">31 siswa</span></div>
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #64748B">Lewat jatuh tempo</span><span style="font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums">Rp5.250.000</span><span style="font-size: 12px; color: #B91C1C; font-weight: 500">7 siswa · &gt; 10 Okt</span></div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+        <div style="flex: 3 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+          <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px 0">
+              <span style="font-size: 16px; font-weight: 600">Daftar tagihan</span>
+              <label style="flex: 0 1 260px; height: 36px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 10px; display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input type="search" placeholder="Cari siswa atau no. invoice" aria-label="Cari tagihan" style="border: 0; font: 400 13px Inter, sans-serif; flex: 1; outline: none; min-width: 0"></label>
+            </div>
+            <div role="tablist" style="display: flex; gap: 20px; padding: 0 16px; border-bottom: 1px solid #E2E8F0; overflow-x: auto">
+              <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+                <button type="button" role="tab" aria-selected="{{ t.sel }}" onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }}</button>
+              </sc-for>
+            </div>
+            <div style="overflow-x: auto">
+              <table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 13px">
+                <thead><tr style="background: #F8FAFC; color: #64748B; font-size: 12px; text-align: left"><th style="padding: 10px 16px; font-weight: 600">No. Invoice</th><th style="padding: 10px 8px; font-weight: 600">Siswa</th><th style="padding: 10px 8px; font-weight: 600">Jenis</th><th style="padding: 10px 8px; font-weight: 600; text-align: right">Nominal</th><th style="padding: 10px 8px; font-weight: 600">Jatuh tempo</th><th style="padding: 10px 8px; font-weight: 600">Status</th><th style="padding: 10px 16px 10px 8px; font-weight: 600"></th></tr></thead>
+                <tbody>
+                  <sc-for list="{{ rows }}" as="r" hint-placeholder-count="7">
+                    <tr style="border-top: 1px solid #E2E8F0">
+                      <td style="padding: 11px 16px; color: #64748B; font-variant-numeric: tabular-nums">{{ r.inv }}</td>
+                      <td style="padding: 11px 8px"><span style="display: flex; flex-direction: column"><span style="font-weight: 500">{{ r.name }}</span><span style="font-size: 12px; color: #64748B">{{ r.cls }}</span></span></td>
+                      <td style="padding: 11px 8px">{{ r.kind }}</td>
+                      <td style="padding: 11px 8px; text-align: right; font-weight: 500; font-variant-numeric: tabular-nums">{{ r.amount }}</td>
+                      <td style="padding: 11px 8px; color: #475569">{{ r.due }}</td>
+                      <td style="padding: 11px 8px"><span style="display: flex; flex-direction: column; gap: 2px"><span style="{{ r.badge }}">{{ r.status }}</span><span style="font-size: 11px; color: #64748B">{{ r.method }}</span></span></td>
+                      <td style="padding: 11px 16px 11px 8px; text-align: right"><a href="#" style="font-weight: 600; text-decoration: none; white-space: nowrap">{{ r.action }}</a></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+            <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 16px; font-weight: 600">Tingkat pelunasan SPP</span><span style="font-size: 12px; color: #64748B">Jul–Okt 2026 · per akhir bulan</span></div>
+            <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; align-items: end; height: 150px; border-bottom: 1px solid #E2E8F0; padding: 0 12px">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="font-size: 12px; color: #64748B">96%</span><div style="width: 100%; max-width: 56px; height: 115px; background: #BFDBFE; border-radius: 4px 4px 0 0"></div></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="font-size: 12px; color: #64748B">94%</span><div style="width: 100%; max-width: 56px; height: 108px; background: #BFDBFE; border-radius: 4px 4px 0 0"></div></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="font-size: 12px; color: #64748B">95%</span><div style="width: 100%; max-width: 56px; height: 111px; background: #BFDBFE; border-radius: 4px 4px 0 0"></div></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="font-size: 12px; color: #172033; font-weight: 600">92,5% · berjalan</span><div style="width: 100%; max-width: 56px; height: 102px; background: #2563EB; border-radius: 4px 4px 0 0"></div></div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding: 0 12px; font-size: 12px; color: #64748B; text-align: center"><span>Jul</span><span>Agu</span><span>Sep</span><span style="color: #172033; font-weight: 600">Okt</span></div>
+          </section>
+        </div>
+
+        <aside style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+          <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+            <span style="font-size: 16px; font-weight: 600">Buat tagihan massal</span>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Jenis tagihan<select style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 10px; font: 400 14px Inter, sans-serif; background: #FFFFFF"><option>SPP November 2026</option><option>Uang Kegiatan Semester</option><option>Seragam &amp; Buku</option></select></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Penerima
+              <select onChange="{{ setTarget }}" style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 10px; font: 400 14px Inter, sans-serif; background: #FFFFFF">
+                <option value="all">Semua siswa aktif (412)</option>
+                <option value="g8">Kelas VIII, semua rombel (138)</option>
+                <option value="8a">Kelas VIII-A (34)</option>
+              </select>
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Nominal per siswa
+              <span style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; display: flex; align-items: center; overflow: hidden"><span style="padding: 0 10px; height: 100%; display: flex; align-items: center; background: #F8FAFC; border-right: 1px solid #E2E8F0; color: #64748B; font-weight: 500">Rp</span><input type="text" inputmode="numeric" value="{{ nominalText }}" onChange="{{ setNominal }}" style="border: 0; flex: 1; min-width: 0; padding: 0 10px; font: 400 14px Inter, sans-serif; outline: none"></span>
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Jatuh tempo<span style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; justify-content: space-between; font-weight: 400; font-size: 14px">Selasa, 10 November 2026<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg></span></label>
+            <label style="display: flex; gap: 8px; align-items: center; font-size: 13px; color: #475569"><input type="checkbox" checked style="width: 16px; height: 16px; accent-color: #2563EB">Terapkan potongan beasiswa (12 siswa)</label>
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 4px; font-size: 13px">
+              <span style="display: flex; justify-content: space-between"><span style="color: #64748B">Jumlah invoice</span><b style="font-variant-numeric: tabular-nums">{{ count }}</b></span>
+              <span style="display: flex; justify-content: space-between"><span style="color: #64748B">Perkiraan total</span><b style="font-variant-numeric: tabular-nums">{{ total }}</b></span>
+            </div>
+            <button type="button" style="height: 42px; border-radius: 6px; border: 0; background: #2563EB; color: #FFFFFF; font: 600 14px Inter, sans-serif">Tinjau &amp; Terbitkan</button>
+          </section>
+
+          <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+            <span style="font-size: 16px; font-weight: 600">Kanal pembayaran</span>
+            <span style="display: flex; justify-content: space-between; font-size: 13px"><span>Virtual Account (BCA, BRI, Mandiri)</span><span style="font-size: 12px; color: #64748B">71%</span></span>
+            <span style="display: flex; justify-content: space-between; font-size: 13px"><span>QRIS</span><span style="font-size: 12px; color: #64748B">22%</span></span>
+            <span style="display: flex; justify-content: space-between; font-size: 13px"><span>Tunai di sekolah</span><span style="font-size: 12px; color: #64748B">7%</span></span>
+            <span style="font-size: 12px; color: #B45309; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 6px; padding: 8px 10px; line-height: 16px">Simulasi. Payment gateway belum terhubung; status lunas di layar ini contoh saja.</span>
+          </section>
+
+          <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 13px">
+            <span style="font-size: 16px; font-weight: 600">Pengingat otomatis</span>
+            <span style="display: flex; justify-content: space-between"><span>H-3 sebelum jatuh tempo</span><span style="color: #15803D; font-weight: 600">Aktif</span></span>
+            <span style="display: flex; justify-content: space-between"><span>Hari jatuh tempo</span><span style="color: #15803D; font-weight: 600">Aktif</span></span>
+            <span style="display: flex; justify-content: space-between"><span>H+7 setelah jatuh tempo</span><span style="color: #15803D; font-weight: 600">Aktif</span></span>
+            <span style="color: #64748B; font-size: 12px">Lewat aplikasi orang tua dan WhatsApp.</span>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1120}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 'all', target: 'all', nominal: '750.000' }; }
+  renderVals() {
+    const rp = (n) => 'Rp' + Math.round(n).toLocaleString('id-ID');
+    const data = [
+      ['INV/TH/2610/0117', 'Alya Putri', 'VIII-A', 'SPP Oktober 2026', 750000, '10 Okt 2026', 'paid', 'VA BCA · 3 Okt'],
+      ['INV/TH/2610/0124', 'Rizky Pratama', 'VIII-A', 'SPP Oktober 2026', 750000, '10 Okt 2026', 'late', 'Pengingat terkirim 2×'],
+      ['INV/TH/2610/0121', 'Eka Maharani', 'VIII-A', 'SPP Oktober 2026', 750000, '10 Okt 2026', 'late', 'Pengingat terkirim 3×'],
+      ['INV/TH/2610/0203', 'Nadia Kusuma', 'VIII-B', 'SPP Oktober 2026', 750000, '10 Okt 2026', 'paid', 'QRIS · 9 Okt'],
+      ['INV/TH/2610/0388', 'Yoga Firmansyah', 'IX-A', 'Uang Kegiatan Semester', 500000, '31 Okt 2026', 'due', 'Belum dibayar'],
+      ['INV/TH/2610/0119', 'Citra Lestari', 'VIII-A', 'Uang Kegiatan Semester', 500000, '31 Okt 2026', 'partial', 'Dibayar Rp250.000'],
+      ['INV/TH/2610/0045', 'Putri Ayu', 'VII-B', 'SPP Oktober 2026', 637500, '10 Okt 2026', 'paid', 'Tunai · beasiswa 15%']
+    ];
+    const meta = { paid: ['Lunas', '#15803D', '#DCFCE7', 'Kuitansi'], due: ['Belum dibayar', '#475569', '#F1F5F9', 'Ingatkan'], partial: ['Sebagian', '#1D4ED8', '#DBEAFE', 'Detail'], late: ['Terlambat', '#B91C1C', '#FEE2E2', 'Ingatkan'] };
+    const tabs = [['all', 'Semua'], ['late', 'Terlambat'], ['open', 'Belum lunas'], ['paid', 'Lunas']];
+    const match = (s, t) => t === 'all' || (t === 'open' ? (s === 'due' || s === 'partial' || s === 'late') : s === t);
+    const counts = { all: 412, late: 7, open: 31, paid: 381 };
+    const n = Number(String(this.state.nominal).replace(/[^0-9]/g, '')) || 0;
+    const recipients = { all: 412, g8: 138, '8a': 34 }[this.state.target];
+    return {
+      tabs: tabs.map(([id, label]) => {
+        const on = this.state.tab === id;
+        return { label: label + ' (' + counts[id] + ')', sel: on ? 'true' : 'false', pick: () => this.setState({ tab: id }),
+          style: 'padding:12px 0;border:0;background:transparent;cursor:pointer;white-space:nowrap;font:' + (on ? '600' : '400') + ' 14px Inter,sans-serif;color:' + (on ? '#2563EB' : '#64748B') + ';border-bottom:2px solid ' + (on ? '#2563EB' : 'transparent') };
+      }),
+      rows: data.filter((r) => match(r[6], this.state.tab)).map(([inv, name, cls, kind, amt, due, st, method]) => ({
+        inv, name, cls, kind, due, method, amount: rp(amt), status: meta[st][0], action: meta[st][3],
+        badge: 'align-self:flex-start;font-size:12px;font-weight:600;padding:3px 8px;border-radius:999px;color:' + meta[st][1] + ';background:' + meta[st][2]
+      })),
+      setTarget: (e) => this.setState({ target: e.target.value }),
+      setNominal: (e) => this.setState({ nominal: e.target.value }),
+      nominalText: this.state.nominal,
+      count: recipients.toLocaleString('id-ID') + ' invoice',
+      total: rp(n * recipients)
+    };
+  }
+}
+</script>
+</body>
+</html>

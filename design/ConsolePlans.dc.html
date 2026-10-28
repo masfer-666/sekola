@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SEKOLA Platform Console — Paket &amp; Fitur</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1000px; font-family: Inter, system-ui, sans-serif; color: #172033; background: #F8FAFC">
+  <div style="flex: 0 0 248px; display: flex"><dc-import name="ConsoleNav" active="paket" hint-size="248px,1000px"></dc-import></div>
+  <main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Paket Langganan &amp; Fitur</h1><span style="font-size: 13px; color: #64748B">Perubahan berlaku untuk tenant baru. Tenant lama mengikuti kontraknya sampai diperpanjang.</span></div>
+      <div style="display: flex; gap: 8px"><button type="button" style="height: 38px; padding: 0 14px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 13px Inter, sans-serif; color: #172033">Riwayat versi</button><button type="button" style="height: 38px; padding: 0 14px; border-radius: 6px; border: 0; background: #14213D; color: #FFFFFF; font: 600 13px Inter, sans-serif">Buat Paket</button></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+      <sc-for list="{{ plans }}" as="p" hint-placeholder-count="3">
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+          <span style="display: flex; justify-content: space-between; align-items: center"><b style="font-size: 17px">{{ p.name }}</b><span style="font-size: 12px; color: #64748B">{{ p.tenants }}</span></span>
+          <span style="font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums">{{ p.price }}</span>
+          <span style="font-size: 13px; color: #64748B">{{ p.desc }}</span>
+          <span style="font-size: 12px; color: #475569">Kuota: {{ p.quota }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden">
+      <div style="padding: 14px 20px; font-size: 15px; font-weight: 600">Matriks fitur</div>
+      <div style="overflow-x: auto">
+        <table style="width: 100%; min-width: 640px; border-collapse: collapse; font-size: 13px">
+          <thead><tr style="background: #F8FAFC; color: #64748B; font-size: 12px; text-align: left"><th style="padding: 10px 20px; font-weight: 600">Modul</th><th style="padding: 10px 8px; font-weight: 600; text-align: center">Dasar</th><th style="padding: 10px 8px; font-weight: 600; text-align: center">Pro</th><th style="padding: 10px 20px 10px 8px; font-weight: 600; text-align: center">Enterprise</th></tr></thead>
+          <tbody>
+            <sc-for list="{{ matrix }}" as="m" hint-placeholder-count="12">
+              <tr style="border-top: 1px solid #E2E8F0"><td style="padding: 10px 20px">{{ m.name }}</td><td style="{{ m.s1 }}">{{ m.a }}</td><td style="{{ m.s2 }}">{{ m.b }}</td><td style="{{ m.s3 }}">{{ m.c }}</td></tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <div style="padding: 12px 20px; border-top: 1px solid #E2E8F0; font-size: 12px; color: #64748B">✓ termasuk · Add-on = bisa dibeli terpisah · — tidak tersedia. Workspace sekolah menyembunyikan menu yang tidak termasuk paket, lalu menampilkan ajakan upgrade di Pengaturan.</div>
+    </section>
+
+    <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+      <b style="font-size: 15px">Add-on</b>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; font-size: 13px">
+        <span style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><b>PPDB Online</b><span style="color: #64748B">Rp2.500.000 / gelombang · 18 tenant</span></span>
+        <span style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><b>Kuota WhatsApp +5.000</b><span style="color: #64748B">Rp1.500.000 · 41 tenant bulan ini</span></span>
+        <span style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><b>Penyimpanan +50 GB</b><span style="color: #64748B">Rp400.000 / bulan · 9 tenant</span></span>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const plans = [
+      ['Dasar', 'Rp8.000 / siswa / bln', 'Untuk SD dan sekolah kecil yang baru digital', '10 GB · 2.000 WA/bln', '49 tenant'],
+      ['Pro', 'Rp12.000 / siswa / bln', 'Keuangan, LMS, perpustakaan, aplikasi orang tua', '50 GB · 10.000 WA/bln', '71 tenant'],
+      ['Enterprise', 'Harga khusus', 'Yayasan multi-kampus, SSO, API, SLA 99,9%', '200 GB+ · sesuai kontrak', '8 tenant']
+    ];
+    const m = [
+      ['Data siswa, guru, kelas', 'y', 'y', 'y'], ['Absensi & jadwal', 'y', 'y', 'y'], ['Nilai & rapor', 'y', 'y', 'y'], ['Pengumuman & kalender', 'y', 'y', 'y'],
+      ['Tagihan & pembayaran online', '-', 'y', 'y'], ['Materi, tugas & ujian CBT', '-', 'y', 'y'], ['Perpustakaan & fasilitas', '-', 'y', 'y'], ['Ekstrakurikuler', 'y', 'y', 'y'],
+      ['Aplikasi orang tua', '-', 'y', 'y'], ['PPDB online', 'a', 'a', 'y'], ['Single Sign-On (Google/Microsoft)', '-', '-', 'y'], ['Akses API & webhook', '-', '-', 'y']
+    ];
+    const cell = (v) => ({ t: v === 'y' ? '✓' : v === 'a' ? 'Add-on' : '—', s: 'padding:10px 8px;text-align:center;font-weight:600;color:' + (v === 'y' ? '#15803D' : v === 'a' ? '#B45309' : '#94A3B8') });
+    return {
+      plans: plans.map(([name, price, desc, quota, tenants]) => ({ name, price, desc, quota, tenants })),
+      matrix: m.map(([name, a, b, c]) => { const x = cell(a), y = cell(b), z = cell(c); return { name, a: x.t, b: y.t, c: z.t, s1: x.s, s2: y.s, s3: z.s + ';padding-right:20px' }; })
+    };
+  }
+}
+</script>
+</body>
+</html>

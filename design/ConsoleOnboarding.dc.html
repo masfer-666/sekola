@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SEKOLA Platform Console — Buat Tenant</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1000px; font-family: Inter, system-ui, sans-serif; color: #172033; background: #F8FAFC">
+  <div style="flex: 0 0 248px; display: flex"><dc-import name="ConsoleNav" active="onboarding" hint-size="248px,1000px"></dc-import></div>
+  <main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; align-items: center">
+    <div style="width: 100%; max-width: 860px; display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Buat Tenant Sekolah Baru</h1><span style="font-size: 13px; color: #64748B">Setiap tenant mendapat database logis, subdomain, dan penyimpanan file yang terpisah</span></div>
+
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+          <li style="display: flex; flex-direction: column; gap: 8px"><span style="{{ s.bar }}"></span><span style="{{ s.text }}">{{ s.n }}. {{ s.label }}</span></li>
+        </sc-for>
+      </ol>
+
+      <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 18px">
+        <sc-if value="{{ s1 }}" hint-placeholder-val="{{ true }}">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Nama sekolah<input type="text" value="MI Nurul Huda" style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 12px; font: 400 14px Inter, sans-serif"></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">NPSN<input type="text" value="60712345" style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 12px; font: 400 14px Inter, sans-serif"><span style="font-size: 12px; font-weight: 400; color: #15803D">NPSN unik, belum terdaftar di SEKOLA</span></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Jenjang<select style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 10px; font: 400 14px Inter, sans-serif; background: #FFFFFF"><option>MI / SD</option><option>MTs / SMP</option><option>MA / SMA</option><option>SMK</option></select></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Kota / Kabupaten<input type="text" value="Kota Malang, Jawa Timur" style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 12px; font: 400 14px Inter, sans-serif"></label>
+            <label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Subdomain
+              <span style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; display: flex; align-items: center; overflow: hidden"><input type="text" value="nurulhuda" style="border: 0; flex: 1; min-width: 0; padding: 0 12px; font: 400 14px Inter, sans-serif; outline: none"><span style="padding: 0 12px; height: 100%; display: flex; align-items: center; background: #F8FAFC; border-left: 1px solid #E2E8F0; color: #64748B">.sekola.id</span></span>
+            </label>
+          </div>
+        </sc-if>
+        <sc-if value="{{ s2 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 14px">
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+              <span style="border: 2px solid #2563EB; background: #EFF6FF; border-radius: 10px; padding: 15px; display: flex; flex-direction: column; gap: 4px"><b>Dasar</b><span style="font-size: 13px; color: #475569">Rp8.000 / siswa / bln</span></span>
+              <span style="border: 1px solid #E2E8F0; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><b>Pro</b><span style="font-size: 13px; color: #64748B">Rp12.000 / siswa / bln</span></span>
+              <span style="border: 1px solid #E2E8F0; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><b>Enterprise</b><span style="font-size: 13px; color: #64748B">Harga khusus</span></span>
+            </div>
+            <label style="display: flex; gap: 8px; align-items: center; font-size: 14px"><input type="checkbox" checked style="accent-color: #2563EB">Mulai dengan uji coba 30 hari (fitur Pro aktif selama uji coba)</label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500; max-width: 280px">Perkiraan jumlah siswa<input type="text" value="220" style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 12px; font: 400 14px Inter, sans-serif"></label>
+          </div>
+        </sc-if>
+        <sc-if value="{{ s3 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Nama admin sekolah<input type="text" value="Siti Khodijah, S.Pd.I." style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 12px; font: 400 14px Inter, sans-serif"></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Email<input type="email" value="admin@nurulhuda.sch.id" style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 12px; font: 400 14px Inter, sans-serif"></label>
+            <span style="grid-column: 1 / -1; font-size: 13px; color: #64748B; line-height: 20px">Admin menerima tautan undangan berlaku 72 jam. Tim SEKOLA tidak membuat kata sandi untuk admin sekolah.</span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ s4 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+            <span style="border: 2px solid #2563EB; background: #EFF6FF; border-radius: 10px; padding: 15px; display: flex; flex-direction: column; gap: 4px"><b>Template Excel SEKOLA</b><span style="font-size: 13px; color: #475569">Siswa, guru, kelas, mapel</span></span>
+            <span style="border: 1px solid #E2E8F0; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><b>Berkas ekspor Dapodik</b><span style="font-size: 13px; color: #64748B">Format .xlsx resmi</span></span>
+            <span style="border: 1px solid #E2E8F0; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><b>Nanti saja</b><span style="font-size: 13px; color: #64748B">Admin sekolah mengimpor sendiri</span></span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ s5 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
+            <span style="display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid #E2E8F0"><span style="color: #64748B">Sekolah</span><b>MI Nurul Huda · NPSN 60712345</b></span>
+            <span style="display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid #E2E8F0"><span style="color: #64748B">Alamat workspace</span><b>nurulhuda.sekola.id</b></span>
+            <span style="display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid #E2E8F0"><span style="color: #64748B">Paket</span><b>Dasar · uji coba 30 hari</b></span>
+            <span style="display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid #E2E8F0"><span style="color: #64748B">Admin sekolah</span><b>admin@nurulhuda.sch.id</b></span>
+            <span style="font-size: 13px; color: #64748B">Super admin SEKOLA tidak otomatis menjadi anggota tenant ini. Akses dukungan harus diminta dan tercatat di log audit.</span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; padding: 20px 0">
+            <span style="width: 56px; height: 56px; border-radius: 99px; background: #DCFCE7; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>
+            <b style="font-size: 18px">Tenant MI Nurul Huda aktif (simulasi)</b>
+            <span style="font-size: 14px; color: #64748B">Undangan terkirim ke admin@nurulhuda.sch.id. ID tenant: tn-0133</span>
+          </div>
+        </sc-if>
+
+        <div style="display: flex; justify-content: space-between; gap: 8px; padding-top: 8px; border-top: 1px solid #E2E8F0">
+          <button type="button" onClick="{{ back }}" style="height: 40px; padding: 0 16px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 14px Inter, sans-serif; color: #172033; cursor: pointer">{{ backLabel }}</button>
+          <button type="button" onClick="{{ next }}" style="height: 40px; padding: 0 18px; border-radius: 6px; border: 0; background: #2563EB; color: #FFFFFF; font: 600 14px Inter, sans-serif; cursor: pointer">{{ nextLabel }}</button>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { step: 1 }; }
+  renderVals() {
+    const s = this.state.step;
+    const labels = ['Profil sekolah', 'Paket', 'Admin sekolah', 'Impor data', 'Tinjau & aktifkan'];
+    return {
+      steps: labels.map((label, i) => {
+        const n = i + 1, done = n < s || s === 6, cur = n === s;
+        return { n, label,
+          bar: 'display:block;height:4px;border-radius:99px;background:' + (done ? '#14B8A6' : cur ? '#2563EB' : '#E2E8F0'),
+          text: 'font-size:12px;font-weight:' + (cur ? '600' : '500') + ';color:' + (cur ? '#172033' : done ? '#0F766E' : '#64748B') };
+      }),
+      s1: s === 1, s2: s === 2, s3: s === 3, s4: s === 4, s5: s === 5, done: s === 6,
+      next: () => this.setState({ step: s >= 6 ? 1 : s + 1 }),
+      back: () => this.setState({ step: s <= 1 ? 1 : s === 6 ? 1 : s - 1 }),
+      nextLabel: s === 5 ? 'Aktifkan Tenant' : s === 6 ? 'Buat tenant lain' : 'Lanjut',
+      backLabel: s === 6 ? 'Ke Direktori' : 'Kembali'
+    };
+  }
+}
+</script>
+</body>
+</html>

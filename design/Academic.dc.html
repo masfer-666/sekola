@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Workspace Sekolah — Tahun Ajaran &amp; Kelas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1000px; font-family: Inter, system-ui, sans-serif; color: #172033; background: #F8FAFC">
+  <div style="flex: 0 0 72px; display: flex"><dc-import name="WsNav" active="akademik" hint-size="72px,1000px"></dc-import></div>
+  <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column">
+    <dc-import name="WsHeader" section="Akademik" page="Tahun Ajaran, Kelas &amp; Mapel" hint-size="100%,56px"></dc-import>
+    <div style="padding: 24px 32px 40px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Struktur Akademik</h1><span style="font-size: 13px; color: #64748B">Pengaturan ini dipakai oleh absensi, jadwal, nilai, dan rapor</span></div>
+        <button type="button" style="height: 38px; padding: 0 14px; border-radius: 6px; border: 0; background: #2563EB; color: #FFFFFF; font: 600 13px Inter, sans-serif">{{ cta }}</button>
+      </div>
+
+      <div role="tablist" style="display: flex; gap: 24px; border-bottom: 1px solid #E2E8F0; overflow-x: auto">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+          <button type="button" role="tab" aria-selected="{{ t.sel }}" onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ isYear }}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+          <div style="flex: 2 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+            <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+              <div style="display: flex; justify-content: space-between; align-items: center"><span style="display: flex; align-items: center; gap: 10px"><span style="font-size: 18px; font-weight: 600">Tahun Ajaran 2026/2027</span><span style="font-size: 12px; font-weight: 600; color: #15803D; background: #DCFCE7; padding: 3px 8px; border-radius: 999px">Aktif</span></span><a href="#" style="font-size: 13px; font-weight: 600; text-decoration: none">Ubah</a></div>
+              <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+                <div style="border: 2px solid #2563EB; background: #EFF6FF; border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 600">Semester Ganjil<span style="font-size: 12px; color: #1D4ED8">Berjalan</span></span><span style="font-size: 13px; color: #475569">13 Juli – 19 Desember 2026</span><span style="height: 6px; background: #DBEAFE; border-radius: 99px; display: block"><span style="display: block; width: 68%; height: 100%; background: #2563EB; border-radius: 99px"></span></span><span style="font-size: 12px; color: #475569">Minggu ke-15 dari 22 · 98 hari efektif</span></div>
+                <div style="border: 1px solid #E2E8F0; border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 600">Semester Genap<span style="font-size: 12px; color: #64748B; font-weight: 500">Terjadwal</span></span><span style="font-size: 13px; color: #64748B">5 Januari – 19 Juni 2027</span><span style="height: 6px; background: #F1F5F9; border-radius: 99px; display: block"></span><span style="font-size: 12px; color: #64748B">Dimulai otomatis setelah rapor ganjil terbit</span></div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
+                <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Kurikulum<select style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 10px; font: 400 14px Inter, sans-serif; background: #FFFFFF"><option>Kurikulum Merdeka</option><option>Kurikulum 2013</option></select></label>
+                <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">KKTP bawaan<input type="text" value="75" style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 12px; font: 400 14px Inter, sans-serif"></label>
+                <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Hari sekolah<select style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 10px; font: 400 14px Inter, sans-serif; background: #FFFFFF"><option>Senin–Jumat (5 hari)</option><option>Senin–Sabtu (6 hari)</option></select></label>
+                <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Durasi 1 JP<select style="height: 40px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 10px; font: 400 14px Inter, sans-serif; background: #FFFFFF"><option>40 menit</option><option>45 menit</option></select></label>
+              </div>
+            </section>
+            <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden">
+              <div style="padding: 14px 20px; font-size: 15px; font-weight: 600">Riwayat tahun ajaran</div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-top: 1px solid #E2E8F0; font-size: 13px"><span>2025/2026 · 398 siswa · 134 lulus</span><span style="font-size: 12px; font-weight: 600; color: #475569; background: #F1F5F9; padding: 3px 8px; border-radius: 999px">Diarsipkan · hanya baca</span></div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-top: 1px solid #E2E8F0; font-size: 13px"><span>2024/2025 · 385 siswa · 129 lulus</span><span style="font-size: 12px; font-weight: 600; color: #475569; background: #F1F5F9; padding: 3px 8px; border-radius: 999px">Diarsipkan · hanya baca</span></div>
+            </section>
+          </div>
+          <aside style="flex: 1 1 300px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+            <span style="font-size: 15px; font-weight: 600">Akhir tahun ajaran</span>
+            <span style="font-size: 13px; color: #64748B; line-height: 20px">Kenaikan kelas, kelulusan kelas IX, dan pembuatan tahun ajaran 2027/2028 bisa dijalankan setelah rapor semester genap terbit.</span>
+            <span style="display: flex; gap: 8px; font-size: 13px"><span style="color: #15803D">✓</span>Data siswa lengkap</span>
+            <span style="display: flex; gap: 8px; font-size: 13px; color: #64748B"><span>○</span>Rapor semester genap terbit</span>
+            <span style="display: flex; gap: 8px; font-size: 13px; color: #64748B"><span>○</span>Keputusan kenaikan kelas disetujui</span>
+            <button type="button" disabled style="height: 40px; border-radius: 6px; border: 0; background: #E2E8F0; color: #64748B; font: 600 13px Inter, sans-serif">Proses Kenaikan Kelas</button>
+          </aside>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isClass }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <span style="font-size: 13px; color: #64748B">12 rombongan belajar · 412 siswa · kapasitas maksimal 36 per kelas</span>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px">
+            <sc-for list="{{ classes }}" as="c" hint-placeholder-count="12">
+              <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+                <span style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 17px; font-weight: 600">{{ c.name }}</span><span style="font-size: 12px; color: #64748B">{{ c.room }}</span></span>
+                <span style="font-size: 13px; color: #475569">Wali kelas: {{ c.wali }}</span>
+                <span style="display: flex; justify-content: space-between; font-size: 12px; color: #64748B"><span>{{ c.count }} / 36 siswa</span><span>{{ c.pct }}</span></span>
+                <span style="height: 6px; background: #F1F5F9; border-radius: 99px; display: block; overflow: hidden"><span style="{{ c.bar }}"></span></span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isSubject }}" hint-placeholder-val="{{ false }}">
+        <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden">
+          <div style="overflow-x: auto">
+            <table style="width: 100%; min-width: 700px; border-collapse: collapse; font-size: 13px">
+              <thead><tr style="background: #F8FAFC; color: #64748B; font-size: 12px; text-align: left"><th style="padding: 10px 20px; font-weight: 600">Mata Pelajaran</th><th style="padding: 10px 8px; font-weight: 600">Kelompok</th><th style="padding: 10px 8px; font-weight: 600; text-align: center">VII</th><th style="padding: 10px 8px; font-weight: 600; text-align: center">VIII</th><th style="padding: 10px 8px; font-weight: 600; text-align: center">IX</th><th style="padding: 10px 20px 10px 8px; font-weight: 600">Guru pengampu</th></tr></thead>
+              <tbody>
+                <sc-for list="{{ subjects }}" as="s" hint-placeholder-count="10">
+                  <tr style="border-top: 1px solid #E2E8F0"><td style="padding: 10px 20px; font-weight: 500">{{ s.name }}</td><td style="padding: 10px 8px; color: #64748B">{{ s.group }}</td><td style="padding: 10px 8px; text-align: center">{{ s.jp }}</td><td style="padding: 10px 8px; text-align: center">{{ s.jp }}</td><td style="padding: 10px 8px; text-align: center">{{ s.jp }}</td><td style="padding: 10px 20px 10px 8px">{{ s.teachers }}</td></tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+          <div style="padding: 12px 20px; border-top: 1px solid #E2E8F0; font-size: 13px; color: #64748B">Angka = JP per minggu per rombel. Total intrakurikuler 32 JP + P5 (projek) 6 JP.</div>
+        </section>
+      </sc-if>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 'year' }; }
+  renderVals() {
+    const t = this.state.tab;
+    const tabs = [['year', 'Tahun Ajaran & Semester'], ['class', 'Kelas (Rombel)'], ['subject', 'Mata Pelajaran']];
+    const wali = ['Teguh Prasetyo, S.Pd.', 'Andreas Wibowo, S.Pd.', 'Siti Aminah, S.Pd.', 'Hendra Gunawan, S.Pd.', 'Budi Santoso, S.Pd.', 'Rina Kartika, S.Pd.', 'Lilis Suryani, S.Pd.', 'Agus Setiawan, S.Pd.', 'Yusuf Hidayat, S.Si.', 'Maria Ulfa, S.Pd.', 'Nur Aini, S.Pd.', 'Dedi Kurniawan, S.Pd.'];
+    const names = ['VII-A', 'VII-B', 'VII-C', 'VII-D', 'VIII-A', 'VIII-B', 'VIII-C', 'VIII-D', 'IX-A', 'IX-B', 'IX-C', 'IX-D'];
+    const counts = [35, 34, 34, 33, 34, 35, 34, 35, 35, 34, 35, 34];
+    const subj = [
+      ['Pendidikan Agama & Budi Pekerti', 'Umum', 3, '4 guru'], ['Pendidikan Pancasila', 'Umum', 3, '2 guru'], ['Bahasa Indonesia', 'Umum', 6, '4 guru'],
+      ['Matematika', 'Umum', 5, '4 guru'], ['IPA', 'Umum', 5, '3 guru'], ['IPS', 'Umum', 4, '3 guru'], ['Bahasa Inggris', 'Umum', 4, '3 guru'],
+      ['PJOK', 'Umum', 3, '2 guru'], ['Informatika', 'Umum', 2, '2 guru'], ['Seni Budaya (Musik)', 'Pilihan', 2, '1 guru'], ['Bahasa Sunda', 'Muatan lokal', 2, '2 guru']
+    ];
+    return {
+      tabs: tabs.map(([id, label]) => {
+        const on = t === id;
+        return { label, sel: on ? 'true' : 'false', pick: () => this.setState({ tab: id }),
+          style: 'padding:10px 0;border:0;background:transparent;cursor:pointer;white-space:nowrap;font:' + (on ? '600' : '400') + ' 14px Inter,sans-serif;color:' + (on ? '#2563EB' : '#64748B') + ';border-bottom:2px solid ' + (on ? '#2563EB' : 'transparent') };
+      }),
+      isYear: t === 'year', isClass: t === 'class', isSubject: t === 'subject',
+      cta: t === 'year' ? 'Tahun Ajaran Baru' : t === 'class' ? 'Tambah Kelas' : 'Tambah Mata Pelajaran',
+      classes: names.map((name, i) => ({ name, wali: wali[i], count: counts[i], room: 'Ruang ' + name.replace('-', ''),
+        pct: Math.round(counts[i] / 36 * 100) + '%', bar: 'display:block;height:100%;background:#14B8A6;width:' + Math.round(counts[i] / 36 * 100) + '%' })),
+      subjects: subj.map(([name, group, jp, teachers]) => ({ name, group, jp, teachers }))
+    };
+  }
+}
+</script>
+</body>
+</html>

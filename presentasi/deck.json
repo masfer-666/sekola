@@ -1,0 +1,17 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-10-28T10:30:00Z"},
+  "lists": "css",
+  "title": "SEKOLA — Presentasi Penawaran",
+  "order": ["cover", "tantangan", "solusi", "fitur", "mobile", "manfaat", "keamanan", "pernyataan", "paket", "contoh", "implementasi", "penutup"],
+  "sections": {
+    "s1": {"description": "Pembuka: SEKOLA dan janjinya", "start": "cover"},
+    "s2": {"description": "Masalah sekolah hari ini dan cara SEKOLA menyelesaikannya", "start": "tantangan"},
+    "s3": {"description": "Produk: modul, aplikasi, manfaat, dan keamanan", "start": "fitur"},
+    "s4": {"description": "Investasi, implementasi, dan langkah selanjutnya", "start": "paket"}
+  },
+  "faces": {
+    "inter": {"family": "Inter", "href": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"}
+  },
+  "designSystems": []
+}

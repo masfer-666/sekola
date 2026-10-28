@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Workspace Sekolah — Laporan &amp; Analitik</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1000px; font-family: Inter, system-ui, sans-serif; color: #172033; background: #F8FAFC">
+  <div style="flex: 0 0 72px; display: flex"><dc-import name="WsNav" active="laporan" hint-size="72px,1000px"></dc-import></div>
+  <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column">
+    <dc-import name="WsHeader" section="Laporan" page="Laporan &amp; Analitik" hint-size="100%,56px"></dc-import>
+    <div style="padding: 24px 32px 40px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Laporan &amp; Analitik</h1><span style="font-size: 13px; color: #64748B">Semester Ganjil 2026/2027 · data hanya dari SMP Tunas Harapan</span></div>
+        <select aria-label="Periode" style="height: 38px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 10px; font: 500 13px Inter, sans-serif; background: #FFFFFF"><option>Semester Ganjil 2026/2027</option><option>Tahun Ajaran 2025/2026</option></select>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <section style="flex: 1 1 420px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; justify-content: space-between; align-items: center"><b style="font-size: 15px">Rata-rata nilai per tingkat</b><span style="font-size: 12px; color: #64748B">nilai akhir sementara</span></div>
+          <sc-for list="{{ grades }}" as="g" hint-placeholder-count="3">
+            <div style="display: grid; grid-template-columns: 70px minmax(0, 1fr) 44px; gap: 10px; align-items: center; font-size: 13px">
+              <span style="font-weight: 500">{{ g.l }}</span>
+              <span style="height: 14px; background: #F1F5F9; border-radius: 4px; display: block; position: relative"><span style="{{ g.bar }}"></span><span style="position: absolute; top: -3px; bottom: -3px; left: 75%; width: 2px; background: #172033"></span></span>
+              <span style="text-align: right; font-variant-numeric: tabular-nums">{{ g.v }}</span>
+            </div>
+          </sc-for>
+          <span style="font-size: 12px; color: #64748B">Garis hitam = KKTP 75. Skala 0–100.</span>
+        </section>
+        <section style="flex: 1 1 420px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; justify-content: space-between; align-items: center"><b style="font-size: 15px">Kehadiran rata-rata per bulan</b><span style="font-size: 12px; color: #64748B">seluruh siswa</span></div>
+          <div style="height: 150px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; align-items: end; border-bottom: 1px solid #E2E8F0; padding: 0 12px">
+            <sc-for list="{{ att }}" as="a" hint-placeholder-count="4">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="font-size: 12px; color: #475569">{{ a.v }}</span><span style="{{ a.bar }}"></span></div>
+            </sc-for>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding: 0 12px; font-size: 12px; color: #64748B; text-align: center"><span>Jul</span><span>Agu</span><span>Sep</span><span>Okt</span></div>
+          <span style="font-size: 12px; color: #64748B">Sumbu dimulai dari 80% agar perbedaan terlihat.</span>
+        </section>
+      </div>
+
+      <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden">
+        <div style="padding: 14px 20px; display: flex; justify-content: space-between; align-items: center"><b style="font-size: 15px">Katalog laporan</b><span style="font-size: 12px; color: #64748B">PDF dan Excel memakai kop SMP Tunas Harapan</span></div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 13px">
+            <thead><tr style="background: #F8FAFC; color: #64748B; font-size: 12px; text-align: left"><th style="padding: 10px 20px; font-weight: 600">Laporan</th><th style="padding: 10px 8px; font-weight: 600">Kategori</th><th style="padding: 10px 8px; font-weight: 600">Jadwal kirim otomatis</th><th style="padding: 10px 20px 10px 8px; font-weight: 600; text-align: right">Unduh</th></tr></thead>
+            <tbody>
+              <sc-for list="{{ reports }}" as="r" hint-placeholder-count="7">
+                <tr style="border-top: 1px solid #E2E8F0"><td style="padding: 11px 20px"><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 500">{{ r.name }}</span><span style="font-size: 12px; color: #64748B">{{ r.desc }}</span></span></td><td style="padding: 11px 8px"><span style="{{ r.badge }}">{{ r.cat }}</span></td><td style="padding: 11px 8px; color: #475569">{{ r.sched }}</td><td style="padding: 11px 20px 11px 8px; text-align: right; white-space: nowrap"><a href="#" style="font-weight: 600; text-decoration: none">PDF</a> · <a href="#" style="font-weight: 600; text-decoration: none">Excel</a></td></tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const cat = { Akademik: ['#1D4ED8', '#DBEAFE'], Kehadiran: ['#0F766E', '#CCFBF1'], Keuangan: ['#B45309', '#FEF3C7'], Pemerintah: ['#475569', '#F1F5F9'] };
+    const reports = [
+      ['Rekap Kehadiran Bulanan', 'Per kelas dan per siswa, dengan rincian H/I/S/A', 'Kehadiran', 'Tiap tanggal 1 ke Kepala Sekolah'],
+      ['Leger Nilai Kelas', 'Semua mapel per rombel, siap cetak', 'Akademik', '—'],
+      ['Analisis Ketuntasan KKTP', 'Siswa di bawah KKTP per mapel dan TP', 'Akademik', '—'],
+      ['Laporan Penerimaan Kas', 'Pembayaran per kanal dan per jenis tagihan', 'Keuangan', 'Tiap Senin ke Bendahara'],
+      ['Daftar Tunggakan', 'Siswa dengan tagihan lewat jatuh tempo', 'Keuangan', 'Tiap Senin ke Bendahara'],
+      ['Ekspor Format Dapodik', 'Data siswa, rombel, dan PTK sesuai format', 'Pemerintah', '—'],
+      ['Laporan PPDB', 'Pendaftar per jalur dan asal sekolah', 'Akademik', '—']
+    ];
+    return {
+      grades: [['Kelas VII', 82.6], ['Kelas VIII', 80.9], ['Kelas IX', 78.4]].map(([l, v]) => ({ l, v: v.toFixed(1).replace('.', ','), bar: 'display:block;height:100%;border-radius:4px;background:#2563EB;width:' + v + '%' })),
+      att: [96.8, 95.1, 95.6, 94.5].map((v, i) => ({ v: v.toFixed(1).replace('.', ',') + '%', bar: 'display:block;width:100%;max-width:56px;border-radius:4px 4px 0 0;background:' + (i === 3 ? '#2563EB' : '#BFDBFE') + ';height:' + Math.round((v - 80) / 20 * 120) + 'px' })),
+      reports: reports.map(([name, desc, c, sched]) => ({ name, desc, cat: c, sched, badge: 'font-size:12px;font-weight:600;padding:3px 8px;border-radius:999px;color:' + cat[c][0] + ';background:' + cat[c][1] }))
+    };
+  }
+}
+</script>
+</body>
+</html>

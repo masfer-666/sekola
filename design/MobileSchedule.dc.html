@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SEKOLA Mobile — Jadwal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F8FAFC; font-family: Inter, system-ui, sans-serif; color: #172033; display: flex; flex-direction: column; overflow: hidden">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0; padding: 24px 16px 12px; display: flex; flex-direction: column; gap: 12px">
+    <span style="display: flex; justify-content: space-between; align-items: center"><b style="font-size: 20px">Jadwal Pelajaran</b><span style="font-size: 13px; color: #64748B">VIII-A</span></span>
+    <div role="tablist" aria-label="Hari" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px">
+      <sc-for list="{{ days }}" as="d" hint-placeholder-count="5">
+        <button type="button" role="tab" aria-selected="{{ d.sel }}" onClick="{{ d.pick }}" style="{{ d.style }}"><span style="font-size: 12px">{{ d.l }}</span><b style="font-size: 16px">{{ d.n }}</b></button>
+      </sc-for>
+    </div>
+  </header>
+  <div style="flex: 1; min-height: 0; padding: 16px; display: flex; flex-direction: column; gap: 8px; overflow: hidden">
+    <sc-for list="{{ lessons }}" as="x" hint-placeholder-count="7">
+      <div style="{{ x.style }}">
+        <span style="width: 52px; flex-shrink: 0; display: flex; flex-direction: column; font-size: 12px; color: #64748B; font-variant-numeric: tabular-nums"><b style="font-size: 14px; color: #172033">{{ x.start }}</b>{{ x.end }}</span>
+        <span style="{{ x.bar }}"></span>
+        <span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><b style="font-size: 15px">{{ x.name }}</b><span style="font-size: 13px; color: #64748B">{{ x.meta }}</span></span>
+        <span style="{{ x.tagStyle }}">{{ x.tag }}</span>
+      </div>
+    </sc-for>
+  </div>
+  <nav aria-label="Navigasi siswa" style="background: #FFFFFF; border-top: 1px solid #E2E8F0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 8px 4px 20px">
+    <a href="MobileStudent.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 44px; justify-content: center; font-size: 11px; color: #64748B; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9H3z"></path></svg>Beranda</a>
+    <a href="MobileSchedule.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 44px; justify-content: center; font-size: 11px; font-weight: 600; color: #2563EB; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18"></path></svg>Jadwal</a>
+    <a href="MobileStudentTask.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 44px; justify-content: center; font-size: 11px; color: #64748B; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"></path><path d="M9 12h6M9 16h6"></path></svg>Tugas</a>
+    <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 44px; justify-content: center; font-size: 11px; color: #64748B; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"></path></svg>Nilai</a>
+    <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 44px; justify-content: center; font-size: 11px; color: #64748B; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Profil</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { day: 2 }; }
+  renderVals() {
+    const days = [['Sen', 26], ['Sel', 27], ['Rab', 28], ['Kam', 29], ['Jum', 30]];
+    const color = { 'Matematika': '#2563EB', 'B. Indonesia': '#14B8A6', 'IPA': '#6366F1', 'IPS': '#D97706', 'B. Inggris': '#DB2777', 'Pend. Agama': '#16A34A', 'Pancasila': '#64748B', 'PJOK': '#EA580C', 'Informatika': '#0284C7', 'Seni Musik': '#9333EA', 'B. Sunda': '#65A30D', 'Projek P5': '#64748B' };
+    const teacher = { 'Matematika': 'Budi Santoso, S.Pd.', 'B. Indonesia': 'Rina Kartika, S.Pd.', 'IPA': 'Yusuf Hidayat, S.Si.', 'IPS': 'Dewi Lestari, S.Pd.', 'B. Inggris': 'Andreas Wibowo, S.Pd.', 'Pend. Agama': 'Ahmad Fauzi, S.Ag.', 'Pancasila': 'Maria Ulfa, S.Pd.', 'PJOK': 'Teguh Prasetyo, S.Pd.', 'Informatika': 'Nur Aini, S.Pd.', 'Seni Musik': 'Lilis Suryani, S.Pd.', 'B. Sunda': 'Dedi Kurniawan, S.Pd.', 'Projek P5': 'Tim P5' };
+    const plan = [
+      ['Pancasila', 'Matematika', 'IPA', 'Informatika'],
+      ['B. Indonesia', 'B. Inggris', 'PJOK', 'IPA', 'Pend. Agama'],
+      ['IPA', 'IPS', 'Matematika', 'B. Indonesia', 'Seni Musik'],
+      ['Matematika', 'IPS', 'IPA', 'B. Inggris', 'PJOK'],
+      ['Pend. Agama', 'B. Indonesia', 'B. Sunda', 'Projek P5']
+    ];
+    const slots = [['07.00', '08.20'], ['08.20', '09.40'], ['09.40', '11.00'], ['11.15', '12.35'], ['12.35', '13.55']];
+    const d = this.state.day;
+    return {
+      days: days.map(([l, n], i) => {
+        const on = i === d;
+        return { l, n, sel: on ? 'true' : 'false', pick: () => this.setState({ day: i }),
+          style: 'height:56px;border-radius:10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-family:Inter,sans-serif;border:' + (on ? '0' : '1px solid #E2E8F0') + ';background:' + (on ? '#14213D' : '#FFFFFF') + ';color:' + (on ? '#FFFFFF' : '#172033') };
+      }),
+      lessons: plan[d].map((name, i) => {
+        const now = d === 2 && i === 2;
+        const done = d < 2 || (d === 2 && i < 2);
+        return { name, start: slots[i][0], end: slots[i][1], meta: teacher[name] + ' · 2 JP',
+          tag: now ? 'Sekarang' : done ? 'Selesai' : '',
+          tagStyle: now ? 'font-size:11px;font-weight:600;color:#1D4ED8;background:#DBEAFE;padding:3px 8px;border-radius:999px' : done ? 'font-size:11px;color:#64748B' : 'display:none',
+          bar: 'width:4px;align-self:stretch;border-radius:99px;background:' + color[name],
+          style: 'display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:#FFFFFF;border:' + (now ? '2px solid #2563EB' : '1px solid #E2E8F0') + ';opacity:' + (done ? '0.7' : '1') };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

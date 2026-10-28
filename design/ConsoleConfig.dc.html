@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SEKOLA Platform Console — Konfigurasi &amp; Audit</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1000px; font-family: Inter, system-ui, sans-serif; color: #172033; background: #F8FAFC">
+  <div style="flex: 0 0 248px; display: flex"><dc-import name="ConsoleNav" active="konfigurasi" hint-size="248px,1000px"></dc-import></div>
+  <main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Konfigurasi Platform &amp; Log Audit</h1><span style="font-size: 13px; color: #64748B">Perubahan konfigurasi memerlukan persetujuan dua super admin</span></div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+      <section style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px; font-size: 13px">
+        <b style="font-size: 15px">Pengaturan global</b>
+        <span style="display: flex; justify-content: space-between; gap: 12px"><span>Bahasa &amp; format</span><b>Bahasa Indonesia · id-ID</b></span>
+        <span style="display: flex; justify-content: space-between; gap: 12px"><span>Zona waktu bawaan</span><b>WIB (tenant bisa WITA/WIT)</b></span>
+        <span style="display: flex; justify-content: space-between; gap: 12px"><span>Lokasi data</span><b>Pusat data di Indonesia</b></span>
+        <span style="display: flex; justify-content: space-between; gap: 12px"><span>2FA untuk staf sekolah</span><b style="color: #15803D">Wajib</b></span>
+        <span style="display: flex; justify-content: space-between; gap: 12px"><span>Kebijakan kata sandi</span><b>Min. 10 karakter</b></span>
+        <span style="display: flex; justify-content: space-between; gap: 12px"><span>Jendela pemeliharaan</span><b>Minggu, 01.00–03.00 WIB</b></span>
+        <span style="display: flex; justify-content: space-between; gap: 12px"><span>Merek platform</span><b>SEKOLA · terkunci</b></span>
+        <span style="color: #64748B; line-height: 18px">Logo dan warna sekolah hanya berlaku di workspace sekolahnya dan tidak pernah mengganti merek SEKOLA di console ini.</span>
+        <div style="border: 1px solid #FECACA; background: #FEF2F2; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 8px">
+          <b style="color: #B91C1C">Mode pemeliharaan darurat</b>
+          <span style="color: #7F1D1D">Menampilkan pemberitahuan ke semua tenant dan menghentikan sementara penulisan data.</span>
+          <button type="button" style="align-self: flex-start; height: 36px; padding: 0 12px; border-radius: 6px; border: 1px solid #FCA5A5; background: #FFFFFF; font: 600 13px Inter, sans-serif; color: #B91C1C">Aktifkan…</button>
+        </div>
+      </section>
+
+      <section style="flex: 2 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden">
+        <div style="padding: 14px 20px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center">
+          <b style="font-size: 15px">Log audit platform</b>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap">
+            <select aria-label="Pelaku" style="height: 34px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 8px; font: 500 12px Inter, sans-serif; background: #FFFFFF"><option>Semua pelaku</option></select>
+            <select aria-label="Jenis aksi" style="height: 34px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 8px; font: 500 12px Inter, sans-serif; background: #FFFFFF"><option>Semua aksi</option></select>
+            <button type="button" style="height: 34px; padding: 0 10px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 12px Inter, sans-serif; color: #172033">Ekspor CSV</button>
+          </div>
+        </div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; min-width: 640px; border-collapse: collapse; font-size: 13px">
+            <thead><tr style="background: #F8FAFC; color: #64748B; font-size: 12px; text-align: left"><th style="padding: 10px 20px; font-weight: 600">Waktu</th><th style="padding: 10px 8px; font-weight: 600">Pelaku</th><th style="padding: 10px 8px; font-weight: 600">Aksi</th><th style="padding: 10px 8px; font-weight: 600">Tenant</th><th style="padding: 10px 20px 10px 8px; font-weight: 600">IP</th></tr></thead>
+            <tbody>
+              <sc-for list="{{ logs }}" as="l" hint-placeholder-count="8">
+                <tr style="border-top: 1px solid #E2E8F0"><td style="padding: 10px 20px; color: #475569; white-space: nowrap; font-variant-numeric: tabular-nums">{{ l.t }}</td><td style="padding: 10px 8px; font-weight: 500">{{ l.who }}</td><td style="padding: 10px 8px">{{ l.what }}</td><td style="padding: 10px 8px; color: #475569">{{ l.tenant }}</td><td style="padding: 10px 20px 10px 8px; color: #64748B; font-variant-numeric: tabular-nums">{{ l.ip }}</td></tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <div style="padding: 12px 20px; border-top: 1px solid #E2E8F0; font-size: 12px; color: #64748B">Log tidak dapat diubah atau dihapus · disimpan 2 tahun</div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const logs = [
+      ['28 Okt 09.12', 'Andi Wijaya', 'Mengubah paket ke Pro', 'SMA Cendekia Nusantara', '103.47.12.8'],
+      ['28 Okt 08.40', 'Maya Sari', 'Meminta akses dukungan (baca, 24 jam)', 'SMP Tunas Harapan', '103.47.12.9'],
+      ['28 Okt 08.00', 'Sistem', 'Menangguhkan tenant (invoice lewat 30 hari)', 'SD Pelita Ilmu', '—'],
+      ['27 Okt 16.21', 'Maya Sari', 'Membuat tenant', 'MI Nurul Huda', '103.47.12.9'],
+      ['27 Okt 14.05', 'Andi Wijaya', 'Mengaktifkan add-on PPDB (uji coba)', 'SMP Tunas Harapan', '103.47.12.8'],
+      ['27 Okt 10.33', 'Rudi Hartanto', 'Login gagal 3× (akun dikunci 15 menit)', '—', '180.252.4.77'],
+      ['26 Okt 22.10', 'Sistem', 'Pencadangan harian selesai', 'Semua tenant', '—'],
+      ['26 Okt 09.02', 'Andi Wijaya', 'Menyetujui perubahan kebijakan kata sandi', '—', '103.47.12.8']
+    ];
+    return { logs: logs.map(([t, who, what, tenant, ip]) => ({ t, who, what, tenant, ip })) };
+  }
+}
+</script>
+</body>
+</html>

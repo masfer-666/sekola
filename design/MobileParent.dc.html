@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SEKOLA Mobile — Orang Tua</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F8FAFC; font-family: Inter, system-ui, sans-serif; color: #172033; display: flex; flex-direction: column; overflow: hidden">
+  <header style="{{ headerStyle }}">
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <span style="display: flex; align-items: center; gap: 8px"><span style="{{ tileStyle }}">{{ c.ini }}</span><span style="font-size: 13px; font-weight: 500">{{ c.school }}</span></span>
+      <span style="font-size: 12px; background: rgba(255,255,255,0.16); padding: 4px 10px; border-radius: 999px">Orang Tua</span>
+    </div>
+    <span style="font-size: 20px; font-weight: 600">Selamat pagi, Pak Hendra</span>
+    <div role="tablist" aria-label="Pilih anak" style="display: flex; gap: 8px">
+      <sc-for list="{{ kids }}" as="k" hint-placeholder-count="2">
+        <button type="button" role="tab" aria-selected="{{ k.sel }}" onClick="{{ k.pick }}" style="{{ k.style }}">{{ k.label }}</button>
+      </sc-for>
+    </div>
+  </header>
+
+  <div style="flex: 1; min-height: 0; padding: 16px; display: flex; flex-direction: column; gap: 14px; overflow: hidden">
+    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px; display: flex; align-items: center; gap: 14px">
+      <span style="width: 44px; height: 44px; border-radius: 99px; background: #DCFCE7; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>
+      <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">{{ c.name }} hadir hari ini</span><span style="font-size: 13px; color: #64748B">{{ c.checkin }}</span></span>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 13px; color: #64748B">Tagihan berikutnya</span><span style="font-size: 12px; font-weight: 600; color: #B45309; background: #FEF3C7; padding: 3px 8px; border-radius: 999px">{{ c.due }}</span></div>
+      <span style="font-size: 15px; font-weight: 500">{{ c.billName }}</span>
+      <span style="font-size: 26px; font-weight: 600; font-variant-numeric: tabular-nums">{{ c.amount }}</span>
+      <a href="MobileParentPay.dc.html" style="height: 48px; border-radius: 8px; background: #2563EB; color: #FFFFFF; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none">Bayar Sekarang</a>
+      <span style="font-size: 12px; color: #64748B">Transfer bank, virtual account, atau QRIS. Pembayaran masih simulasi.</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 16px; font-weight: 600">Pengumuman</span><a href="#" style="font-size: 14px; font-weight: 600; text-decoration: none">Semua</a></div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 4px">
+        <span style="font-size: 15px; font-weight: 500">{{ c.news }}</span>
+        <span style="font-size: 13px; color: #64748B">{{ c.newsMeta }}</span>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px">
+      <span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 15px; font-weight: 500">Rapor Tengah Semester</span><span style="font-size: 13px; color: #64748B">Semester Ganjil 2026/2027</span></span>
+      <a href="#" style="font-size: 14px; font-weight: 600; text-decoration: none; min-height: 44px; display: flex; align-items: center">Lihat</a>
+    </div>
+  </div>
+
+  <nav aria-label="Navigasi orang tua" style="background: #FFFFFF; border-top: 1px solid #E2E8F0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 8px 4px 20px">
+    <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 44px; justify-content: center; font-size: 11px; font-weight: 600; color: #2563EB; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9H3z"></path></svg>Beranda</a>
+    <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 44px; justify-content: center; font-size: 11px; color: #64748B; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3 8-8"></path><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"></path></svg>Kehadiran</a>
+    <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 44px; justify-content: center; font-size: 11px; color: #64748B; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"></path></svg>Tagihan</a>
+    <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 44px; justify-content: center; font-size: 11px; color: #64748B; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"></path></svg>Pesan</a>
+    <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 44px; justify-content: center; font-size: 11px; color: #64748B; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Profil</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { kid: 'alya' }; }
+  renderVals() {
+    const kids = [
+      { id: 'alya', label: 'Alya · VIII-A', name: 'Alya', ini: 'TH', school: 'SMP Tunas Harapan', color: '#0E7490', checkin: 'Masuk 06.52 WIB · dicatat Budi Santoso, S.Pd.', billName: 'SPP November 2026', amount: 'Rp750.000', due: 'Jatuh tempo 10 Nov', news: 'Rapat Wali Murid Kelas IX', newsMeta: 'Jumat, 30 Okt · 13.00 WIB · Aula' },
+      { id: 'raka', label: 'Raka · 3B', name: 'Raka', ini: 'PI', school: 'SD Pelita Ilmu', color: '#B45309', checkin: 'Masuk 06.58 WIB · dicatat Sri Wahyuni, S.Pd.', billName: 'Uang Kegiatan Semester Ganjil', amount: 'Rp350.000', due: 'Jatuh tempo 15 Nov', news: 'Kunjungan ke Museum Ronggowarsito', newsMeta: 'Kamis, 5 Nov · izin orang tua diperlukan' }
+    ];
+    const c = kids.find((k) => k.id === this.state.kid);
+    return {
+      c,
+      headerStyle: 'background:' + c.color + ';color:#FFFFFF;padding:28px 20px 18px;display:flex;flex-direction:column;gap:14px',
+      tileStyle: 'width:28px;height:28px;border-radius:7px;background:#FFFFFF;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;color:' + c.color,
+      kids: kids.map((k) => {
+        const on = k.id === c.id;
+        return { label: k.label, sel: on ? 'true' : 'false', pick: () => this.setState({ kid: k.id }),
+          style: 'height:36px;padding:0 14px;border-radius:999px;cursor:pointer;font:600 13px Inter,sans-serif;border:1px solid rgba(255,255,255,0.5);background:' + (on ? '#FFFFFF' : 'transparent') + ';color:' + (on ? c.color : '#FFFFFF') };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

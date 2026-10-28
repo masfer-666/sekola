@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Workspace Sekolah — Nilai &amp; Rapor</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1120px; font-family: Inter, system-ui, sans-serif; color: #172033; background: #F8FAFC">
+
+  <nav aria-label="Navigasi ringkas" style="flex: 0 0 72px; background: #FFFFFF; border-right: 1px solid #E2E8F0; padding: 16px 0; display: flex; flex-direction: column; align-items: center; gap: 8px">
+    <span title="SMP Tunas Harapan" style="width: 40px; height: 40px; border-radius: 10px; background: #0E7490; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 12px">TH</span>
+    <a href="Workspace.dc.html" aria-label="Dashboard" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg></a>
+    <a href="Students.dc.html" aria-label="Data Siswa" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c1-4 4-6 7-6s6 2 7 6M17 11a3 3 0 1 0 0-6M22 21c-.5-2.5-2-4-4-5"></path></svg></a>
+    <a href="Attendance.dc.html" aria-label="Absensi" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3 8-8"></path><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"></path></svg></a>
+    <a href="Grades.dc.html" aria-label="Nilai dan Rapor" aria-current="page" style="width: 44px; height: 44px; border-radius: 8px; background: #ECFEFF; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"></path></svg></a>
+    <a href="Finance.dc.html" aria-label="Tagihan" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"></path><path d="M9 8h6M9 12h6"></path></svg></a>
+    <a href="SchoolSettings.dc.html" aria-label="Pengaturan Sekolah" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"></path></svg></a>
+    <span style="margin-top: auto" title="Didukung oleh SEKOLA"><svg width="24" height="24" viewBox="0 0 40 40" role="img" aria-label="SEKOLA"><rect width="40" height="40" rx="10" fill="#14213D"></rect><path d="M27 11H17.5a4.5 4.5 0 0 0 0 9h5a4.5 4.5 0 0 1 0 9H12" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"></path></svg></span>
+  </nav>
+
+  <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column">
+    <header style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; padding: 14px 32px; background: #FFFFFF; border-bottom: 1px solid #E2E8F0; font-size: 13px">
+      <nav aria-label="Breadcrumb" style="display: flex; gap: 6px; color: #64748B; align-items: center"><span style="display: flex; align-items: center; gap: 6px; padding: 4px 8px; background: #F1F5F9; border-radius: 6px; color: #172033; font-weight: 500"><span style="width: 8px; height: 8px; border-radius: 99px; background: #0E7490"></span>SMP Tunas Harapan</span><span>/</span><span>Pembelajaran</span><span>/</span><span style="color: #172033; font-weight: 500">Nilai &amp; Rapor</span></nav>
+      <span style="color: #64748B">TA 2026/2027 · Semester Ganjil · Kurikulum Merdeka</span>
+    </header>
+
+    <div style="padding: 24px 32px 40px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Nilai &amp; Rapor</h1><span style="font-size: 13px; color: #64748B">Batas input nilai: Jumat, 4 Desember 2026</span></div>
+      </div>
+
+      <div role="tablist" style="display: flex; gap: 24px; border-bottom: 1px solid #E2E8F0">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+          <button type="button" role="tab" aria-selected="{{ t.sel }}" onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ isInput }}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+            <select aria-label="Kelas" style="height: 38px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 10px; font: 500 13px Inter, sans-serif; background: #FFFFFF"><option>Kelas VIII-A</option></select>
+            <select aria-label="Mata Pelajaran" style="height: 38px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 10px; font: 500 13px Inter, sans-serif; background: #FFFFFF"><option>Matematika · Budi Santoso, S.Pd.</option></select>
+            <span style="font-size: 13px; color: #64748B">Bobot: Tugas 30% · UH 30% · PTS 20% · PAS 20% · KKTP 75</span>
+            <span style="margin-left: auto; font-size: 12px; font-weight: 600; color: #475569; background: #F1F5F9; padding: 4px 10px; border-radius: 999px">Draf · tersimpan otomatis 09.14</span>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+            <section style="flex: 3 1 620px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden">
+              <div style="overflow-x: auto">
+                <table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 13px">
+                  <thead><tr style="background: #F8FAFC; color: #64748B; font-size: 12px; text-align: left"><th style="padding: 10px 16px; font-weight: 600">Nama Siswa</th><th style="padding: 10px 6px; font-weight: 600; text-align: center">Tugas</th><th style="padding: 10px 6px; font-weight: 600; text-align: center">UH</th><th style="padding: 10px 6px; font-weight: 600; text-align: center">PTS</th><th style="padding: 10px 6px; font-weight: 600; text-align: center">PAS</th><th style="padding: 10px 8px; font-weight: 600; text-align: center">Nilai Akhir</th><th style="padding: 10px 8px; font-weight: 600; text-align: center">Predikat</th><th style="padding: 10px 16px 10px 8px; font-weight: 600">Capaian</th></tr></thead>
+                  <tbody>
+                    <sc-for list="{{ rows }}" as="r" hint-placeholder-count="8">
+                      <tr style="border-top: 1px solid #E2E8F0">
+                        <td style="padding: 8px 16px; font-weight: 500">{{ r.name }}</td>
+                        <td style="padding: 6px; text-align: center; font-variant-numeric: tabular-nums">{{ r.t }}</td>
+                        <td style="padding: 6px; text-align: center; font-variant-numeric: tabular-nums">{{ r.uh }}</td>
+                        <td style="padding: 6px; text-align: center; font-variant-numeric: tabular-nums">{{ r.pts }}</td>
+                        <td style="padding: 6px; text-align: center"><input type="text" inputmode="numeric" aria-label="Nilai PAS {{ r.name }}" value="{{ r.pas }}" onChange="{{ r.setPas }}" placeholder="—" style="{{ r.pasStyle }}"></td>
+                        <td style="padding: 6px 8px; text-align: center; font-weight: 600; font-variant-numeric: tabular-nums">{{ r.final }}</td>
+                        <td style="padding: 6px 8px; text-align: center"><span style="{{ r.badge }}">{{ r.pred }}</span></td>
+                        <td style="padding: 8px 16px 8px 8px; color: #475569; font-size: 12px">{{ r.desc }}</td>
+                      </tr>
+                    </sc-for>
+                  </tbody>
+                </table>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; padding: 12px 16px; border-top: 1px solid #E2E8F0; font-size: 13px; color: #64748B">
+                <span>{{ filled }} dari 8 nilai PAS terisi · rata-rata kelas {{ avg }}</span>
+                <div style="display: flex; gap: 8px">
+                  <button type="button" style="height: 36px; padding: 0 12px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 13px Inter, sans-serif; color: #172033">Impor dari Excel</button>
+                  <button type="button" style="height: 36px; padding: 0 12px; border-radius: 6px; border: 0; background: #2563EB; color: #FFFFFF; font: 600 13px Inter, sans-serif">Kirim ke Wali Kelas</button>
+                </div>
+              </div>
+            </section>
+
+            <aside style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+              <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+                <span style="font-size: 15px; font-weight: 600">Sebaran nilai akhir</span>
+                <sc-for list="{{ dist }}" as="d" hint-placeholder-count="4">
+                  <div style="display: grid; grid-template-columns: 86px minmax(0, 1fr) 24px; gap: 10px; align-items: center; font-size: 13px">
+                    <span>{{ d.label }}</span>
+                    <span style="height: 10px; background: #F1F5F9; border-radius: 99px; display: block; overflow: hidden"><span style="{{ d.bar }}"></span></span>
+                    <span style="text-align: right; font-variant-numeric: tabular-nums">{{ d.n }}</span>
+                  </div>
+                </sc-for>
+                <span style="font-size: 12px; color: #64748B">Hanya siswa dengan nilai PAS terisi.</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: #475569; line-height: 18px">
+                <span style="font-size: 15px; font-weight: 600; color: #172033">Aturan predikat</span>
+                <span>A ≥ 90 · B 80–89 · C 75–79 · D &lt; 75 (di bawah KKTP, perlu remedial)</span>
+                <span>Deskripsi capaian dibuat otomatis dari nilai tertinggi dan terendah per tujuan pembelajaran. Guru tetap bisa mengubahnya.</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isRapor }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 16px">
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px">
+            <span style="display: flex; gap: 10px; align-items: center; font-size: 13px"><span style="width: 26px; height: 26px; border-radius: 99px; background: #14B8A6; color: #FFFFFF; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">✓</span><span style="display: flex; flex-direction: column"><b>Guru mapel input</b><span style="color: #64748B">9 / 12 mapel</span></span></span>
+            <span style="display: flex; gap: 10px; align-items: center; font-size: 13px"><span style="width: 26px; height: 26px; border-radius: 99px; border: 2px solid #2563EB; color: #2563EB; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-sizing: border-box">2</span><span style="display: flex; flex-direction: column"><b>Wali kelas tinjau</b><span style="color: #64748B">Budi Santoso, S.Pd.</span></span></span>
+            <span style="display: flex; gap: 10px; align-items: center; font-size: 13px; color: #64748B"><span style="width: 26px; height: 26px; border-radius: 99px; border: 1px solid #CBD5E1; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; box-sizing: border-box">3</span><span style="display: flex; flex-direction: column"><b>Kepala sekolah setujui</b><span>Menunggu</span></span></span>
+            <span style="display: flex; gap: 10px; align-items: center; font-size: 13px; color: #64748B"><span style="width: 26px; height: 26px; border-radius: 99px; border: 1px solid #CBD5E1; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; box-sizing: border-box">4</span><span style="display: flex; flex-direction: column"><b>Terbit ke orang tua</b><span>Rencana 18 Des 2026</span></span></span>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+            <section style="flex: 1 1 420px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden">
+              <div style="padding: 14px 16px; font-size: 15px; font-weight: 600">Status per mata pelajaran · VIII-A</div>
+              <sc-for list="{{ subjects }}" as="s" hint-placeholder-count="8">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 16px; border-top: 1px solid #E2E8F0; font-size: 13px">
+                  <span style="display: flex; flex-direction: column"><span style="font-weight: 500">{{ s.name }}</span><span style="font-size: 12px; color: #64748B">{{ s.teacher }}</span></span>
+                  <span style="{{ s.badge }}">{{ s.status }}</span>
+                </div>
+              </sc-for>
+            </section>
+
+            <section aria-label="Pratinjau rapor" style="flex: 1 1 420px; min-width: 0; background: #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px"><b>Pratinjau rapor · Alya Putri</b><button type="button" style="height: 34px; padding: 0 12px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 12px Inter, sans-serif; color: #172033">Unduh PDF</button></div>
+              <div style="background: #FFFFFF; border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 4px 12px rgba(15,23,42,0.08)">
+                <div style="display: flex; align-items: center; gap: 12px; padding-bottom: 12px; border-bottom: 2px solid #0E7490">
+                  <span style="width: 40px; height: 40px; border-radius: 8px; background: #0E7490; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">TH</span>
+                  <span style="display: flex; flex-direction: column"><span style="font-size: 14px; font-weight: 700">SMP TUNAS HARAPAN</span><span style="font-size: 11px; color: #64748B">NPSN 20212345 · Jl. Merdeka No. 45, Bandung</span></span>
+                </div>
+                <span style="font-size: 13px; font-weight: 700; text-align: center; letter-spacing: 0.04em">LAPORAN HASIL BELAJAR</span>
+                <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 16px; font-size: 11px; color: #334155">
+                  <span>Nama: <b>Alya Putri</b></span><span>Kelas: <b>VIII-A</b></span>
+                  <span>NISN: <b>0098765432</b></span><span>Semester: <b>Ganjil 2026/2027</b></span>
+                </div>
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px">
+                  <thead><tr style="background: #F1F5F9; text-align: left"><th style="padding: 6px; border: 1px solid #E2E8F0">Mata Pelajaran</th><th style="padding: 6px; border: 1px solid #E2E8F0; text-align: center">Nilai</th><th style="padding: 6px; border: 1px solid #E2E8F0">Capaian Kompetensi</th></tr></thead>
+                  <tbody>
+                    <tr><td style="padding: 6px; border: 1px solid #E2E8F0">Pendidikan Agama</td><td style="padding: 6px; border: 1px solid #E2E8F0; text-align: center">92</td><td style="padding: 6px; border: 1px solid #E2E8F0">Sangat baik dalam memahami akhlak terpuji.</td></tr>
+                    <tr><td style="padding: 6px; border: 1px solid #E2E8F0">Bahasa Indonesia</td><td style="padding: 6px; border: 1px solid #E2E8F0; text-align: center">89</td><td style="padding: 6px; border: 1px solid #E2E8F0">Baik menyusun teks eksplanasi.</td></tr>
+                    <tr><td style="padding: 6px; border: 1px solid #E2E8F0">Matematika</td><td style="padding: 6px; border: 1px solid #E2E8F0; text-align: center">{{ alyaFinal }}</td><td style="padding: 6px; border: 1px solid #E2E8F0">Mahir menyelesaikan SPLDV.</td></tr>
+                    <tr><td style="padding: 6px; border: 1px solid #E2E8F0">IPA</td><td style="padding: 6px; border: 1px solid #E2E8F0; text-align: center">91</td><td style="padding: 6px; border: 1px solid #E2E8F0">Sangat baik dalam praktikum gaya.</td></tr>
+                  </tbody>
+                </table>
+                <div style="display: flex; justify-content: space-between; font-size: 11px; color: #334155"><span>Kehadiran: Sakit 1 · Izin 0 · Alpa 0</span><span>Bandung, 18 Desember 2026</span></div>
+                <span style="font-size: 10px; color: #64748B; text-align: right">Dokumen dibuat dengan SEKOLA</span>
+              </div>
+            </section>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1120}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'input', pas: { 0: '90', 1: '84', 2: '', 3: '78', 4: '68', 5: '', 6: '95', 7: '82' } };
+  }
+  renderVals() {
+    const base = [
+      ['Alya Putri', 92, 88, 86], ['Bagas Aditya', 85, 80, 82], ['Citra Lestari', 90, 94, 91], ['Dimas Saputra', 78, 76, 80],
+      ['Eka Maharani', 70, 72, 68], ['Fajar Nugroho', 82, 79, 77], ['Gita Permata', 96, 93, 95], ['Rizky Pratama', 84, 81, 83]
+    ];
+    const pas = this.state.pas;
+    const predOf = (v) => v >= 90 ? 'A' : v >= 80 ? 'B' : v >= 75 ? 'C' : 'D';
+    const pc = { A: ['#0F766E', '#CCFBF1'], B: ['#1D4ED8', '#DBEAFE'], C: ['#B45309', '#FEF3C7'], D: ['#B91C1C', '#FEE2E2'] };
+    const descOf = { A: 'Sangat mahir menyelesaikan SPLDV', B: 'Mahir, perlu latihan soal cerita', C: 'Cukup, perlu penguatan metode substitusi', D: 'Perlu remedial SPLDV' };
+    const finals = [];
+    const rows = base.map(([name, t, uh, pts], i) => {
+      const raw = (pas[i] || '').trim();
+      const p = Number(raw.replace(',', '.'));
+      const valid = raw !== '' && !isNaN(p) && p >= 0 && p <= 100;
+      const bad = raw !== '' && !valid;
+      let final = '—', pred = '—', badge = 'font-size:12px;color:#94A3B8', desc = 'Menunggu nilai PAS';
+      if (valid) {
+        const f = Math.round(t * 0.3 + uh * 0.3 + pts * 0.2 + p * 0.2);
+        finals.push(f);
+        final = String(f); pred = predOf(f); desc = descOf[pred];
+        badge = 'display:inline-block;min-width:24px;font-size:12px;font-weight:700;padding:3px 8px;border-radius:999px;color:' + pc[pred][0] + ';background:' + pc[pred][1];
+      }
+      if (bad) desc = 'Nilai harus 0–100';
+      return { name, t, uh, pts, pas: raw, final, pred, badge, desc,
+        setPas: (e) => this.setState({ pas: { ...this.state.pas, [i]: e.target.value } }),
+        pasStyle: 'width:56px;height:32px;text-align:center;border-radius:6px;font:500 13px Inter,sans-serif;color:#172033;background:' + (raw === '' ? '#FFFBEB' : '#FFFFFF') + ';border:1px solid ' + (bad ? '#DC2626' : raw === '' ? '#FCD34D' : '#CBD5E1') };
+    });
+    const count = { A: 0, B: 0, C: 0, D: 0 };
+    finals.forEach((f) => { count[predOf(f)] += 1; });
+    const max = Math.max(1, ...Object.values(count));
+    const tabs = [['input', 'Input Nilai'], ['rapor', 'Rapor Kelas']];
+    const st = { ok: ['Terkunci', '#15803D', '#DCFCE7'], draft: ['Draf', '#475569', '#F1F5F9'], late: ['Belum diisi', '#B45309', '#FEF3C7'] };
+    const subj = [
+      ['Pendidikan Agama', 'Ahmad Fauzi, S.Ag.', 'ok'], ['Pendidikan Pancasila', 'Maria Ulfa, S.Pd.', 'ok'], ['Bahasa Indonesia', 'Rina Kartika, S.Pd.', 'ok'],
+      ['Matematika', 'Budi Santoso, S.Pd.', 'draft'], ['IPA', 'Yusuf Hidayat, S.Si.', 'ok'], ['IPS', 'Dewi Lestari, S.Pd.', 'ok'],
+      ['Bahasa Inggris', 'Andreas Wibowo, S.Pd.', 'late'], ['PJOK', 'Teguh Prasetyo, S.Pd.', 'late']
+    ];
+    return {
+      tabs: tabs.map(([id, label]) => {
+        const on = this.state.tab === id;
+        return { label, sel: on ? 'true' : 'false', pick: () => this.setState({ tab: id }),
+          style: 'padding:10px 0;border:0;background:transparent;cursor:pointer;font:' + (on ? '600' : '400') + ' 14px Inter,sans-serif;color:' + (on ? '#2563EB' : '#64748B') + ';border-bottom:2px solid ' + (on ? '#2563EB' : 'transparent') };
+      }),
+      isInput: this.state.tab === 'input',
+      isRapor: this.state.tab === 'rapor',
+      rows,
+      filled: finals.length,
+      avg: finals.length ? (finals.reduce((a, b) => a + b, 0) / finals.length).toFixed(1).replace('.', ',') : '—',
+      alyaFinal: rows[0].final,
+      dist: [['A · ≥ 90', 'A', '#0F766E'], ['B · 80–89', 'B', '#2563EB'], ['C · 75–79', 'C', '#D97706'], ['D · < 75', 'D', '#DC2626']].map(([label, k, c]) => ({
+        label, n: count[k], bar: 'display:block;height:100%;border-radius:99px;background:' + c + ';width:' + Math.round(count[k] / max * 100) + '%' })),
+      subjects: subj.map(([name, teacher, s]) => ({ name, teacher, status: st[s][0],
+        badge: 'font-size:12px;font-weight:600;padding:3px 8px;border-radius:999px;white-space:nowrap;color:' + st[s][1] + ';background:' + st[s][2] }))
+    };
+  }
+}
+</script>
+</body>
+</html>

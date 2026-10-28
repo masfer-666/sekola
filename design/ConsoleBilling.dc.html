@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SEKOLA Platform Console — Penagihan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1000px; font-family: Inter, system-ui, sans-serif; color: #172033; background: #F8FAFC">
+  <div style="flex: 0 0 248px; display: flex"><dc-import name="ConsoleNav" active="penagihan" hint-size="248px,1000px"></dc-import></div>
+  <main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Penagihan Platform</h1><span style="font-size: 13px; color: #64748B">Tagihan SEKOLA ke sekolah (tenant) · data demo</span></div>
+      <button type="button" style="height: 38px; padding: 0 14px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 13px Inter, sans-serif; color: #172033">Ekspor ke Akuntansi</button>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px">
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #64748B">Pendapatan berulang / bulan</span><span style="font-size: 24px; font-weight: 600">Rp184,5 jt</span><span style="font-size: 12px; color: #15803D; font-weight: 500">+5,8% dari September</span></div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #64748B">Piutang belum dibayar</span><span style="font-size: 24px; font-weight: 600">Rp27,3 jt</span><span style="font-size: 12px; color: #B45309; font-weight: 500">9 invoice jatuh tempo</span></div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #64748B">Perpanjangan 60 hari ke depan</span><span style="font-size: 24px; font-weight: 600">14 tenant</span><span style="font-size: 12px; color: #64748B">nilai kontrak Rp412 jt</span></div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #64748B">Berhenti berlangganan (12 bln)</span><span style="font-size: 24px; font-weight: 600">3,1%</span><span style="font-size: 12px; color: #64748B">4 tenant</span></div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+      <section style="flex: 3 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden">
+        <div style="padding: 14px 20px; display: flex; justify-content: space-between; align-items: center"><b style="font-size: 15px">Invoice tenant</b><span style="font-size: 12px; color: #64748B">Oktober 2026</span></div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; min-width: 680px; border-collapse: collapse; font-size: 13px">
+            <thead><tr style="background: #F8FAFC; color: #64748B; font-size: 12px; text-align: left"><th style="padding: 10px 20px; font-weight: 600">Invoice</th><th style="padding: 10px 8px; font-weight: 600">Sekolah</th><th style="padding: 10px 8px; font-weight: 600">Rincian</th><th style="padding: 10px 8px; font-weight: 600; text-align: right">Total</th><th style="padding: 10px 20px 10px 8px; font-weight: 600">Status</th></tr></thead>
+            <tbody>
+              <sc-for list="{{ rows }}" as="r" hint-placeholder-count="6">
+                <tr style="border-top: 1px solid #E2E8F0"><td style="padding: 10px 20px; color: #64748B; font-variant-numeric: tabular-nums">{{ r.inv }}</td><td style="padding: 10px 8px; font-weight: 500">{{ r.school }}</td><td style="padding: 10px 8px; color: #475569">{{ r.desc }}</td><td style="padding: 10px 8px; text-align: right; font-variant-numeric: tabular-nums">{{ r.total }}</td><td style="padding: 10px 20px 10px 8px"><span style="{{ r.badge }}">{{ r.status }}</span></td></tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <aside style="flex: 1 1 300px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 13px">
+        <b style="font-size: 15px">Kebijakan penagihan</b>
+        <span style="display: flex; justify-content: space-between"><span>Pengingat ke admin sekolah</span><b>H-7, H+0, H+7</b></span>
+        <span style="display: flex; justify-content: space-between"><span>Mode baca-saja</span><b>H+21</b></span>
+        <span style="display: flex; justify-content: space-between"><span>Penangguhan otomatis</span><b>H+30</b></span>
+        <span style="display: flex; justify-content: space-between"><span>Data disimpan setelah berhenti</span><b>180 hari</b></span>
+        <span style="color: #64748B; line-height: 18px">Penangguhan tidak menghapus data. Siswa dan orang tua melihat pesan netral "Layanan sedang tidak tersedia", tanpa rincian tagihan sekolah.</span>
+        <a href="#" style="font-weight: 600; text-decoration: none">Ubah kebijakan</a>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = { paid: ['Lunas', '#15803D', '#DCFCE7'], due: ['Jatuh tempo', '#B45309', '#FEF3C7'], over: ['Lewat 30 hari', '#B91C1C', '#FEE2E2'], open: ['Terkirim', '#1D4ED8', '#DBEAFE'] };
+    const rows = [
+      ['SKL/2610/0098', 'SMK Bina Karya', 'Enterprise · bulanan', 'Rp41.500.000', 'paid'],
+      ['SKL/2610/0057', 'SMA Cendekia Nusantara', 'Pro · 1.580 siswa → upgrade', 'Rp18.960.000', 'open'],
+      ['SKL/2609/0042-A', 'SMP Tunas Harapan', 'Add-on WhatsApp +5.000', 'Rp1.500.000', 'due'],
+      ['SKL/2609/0061', 'SD Pelita Ilmu', 'Dasar · 402 siswa', 'Rp3.216.000', 'over'],
+      ['SKL/2610/0133', 'MI Nurul Huda', 'Uji coba · Rp0', 'Rp0', 'paid'],
+      ['SKL/2610/0112', 'SMP Harapan Jaya', 'Pro · 620 siswa', 'Rp7.440.000', 'due']
+    ];
+    return {
+      rows: rows.map(([inv, school, desc, total, s]) => ({ inv, school, desc, total, status: st[s][0],
+        badge: 'font-size:12px;font-weight:600;padding:3px 8px;border-radius:999px;white-space:nowrap;color:' + st[s][1] + ';background:' + st[s][2] }))
+    };
+  }
+}
+</script>
+</body>
+</html>

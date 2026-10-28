@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Header Tenant</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<header style="width: 100%; min-height: 56px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; padding: 10px 32px; background: #FFFFFF; border-bottom: 1px solid #E2E8F0; font-family: Inter, system-ui, sans-serif; color: #172033; font-size: 13px">
+  <nav aria-label="Breadcrumb" style="display: flex; flex-wrap: wrap; gap: 6px; color: #64748B; align-items: center">
+    <span title="Sekolah aktif" style="display: flex; align-items: center; gap: 6px; padding: 4px 8px; background: #F1F5F9; border-radius: 6px; color: #172033; font-weight: 500"><span style="width: 8px; height: 8px; border-radius: 99px; background: {{ accent }}"></span>SMP Tunas Harapan</span>
+    <span>/</span><span>{{ section }}</span><span>/</span><span style="color: #172033; font-weight: 500">{{ page }}</span>
+  </nav>
+  <div style="display: flex; align-items: center; gap: 14px">
+    <span style="color: #64748B">TA 2026/2027 · Semester Ganjil</span>
+    <button type="button" aria-label="Notifikasi, 3 baru" style="position: relative; width: 36px; height: 36px; border: 1px solid #E2E8F0; border-radius: 8px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21h4"></path></svg><span style="position: absolute; top: 7px; right: 8px; width: 7px; height: 7px; border-radius: 99px; background: #DC2626"></span></button>
+    <span style="width: 32px; height: 32px; border-radius: 99px; background: #E0E7FF; color: #3730A3; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center" title="Ratna Dewi, M.Pd. · Admin Sekolah">RD</span>
+  </div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"section":{"editor":"text","default":"Akademik"},"page":{"editor":"text","default":"Halaman"},"accent":{"editor":"color","default":"#0E7490"},"$preview":{"width":1280,"height":56}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { section: this.props.section ?? 'Akademik', page: this.props.page ?? 'Halaman', accent: this.props.accent ?? '#0E7490' };
+  }
+}
+</script>
+</body>
+</html>

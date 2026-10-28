@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Sidebar Console</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<nav aria-label="Navigasi console" style="width: 248px; min-height: 1000px; height: 100%; box-sizing: border-box; background: #14213D; color: #CBD5E1; padding: 20px 14px; display: flex; flex-direction: column; gap: 18px; font-family: Inter, system-ui, sans-serif">
+  <a href="Console.dc.html" style="display: flex; align-items: center; gap: 10px; padding: 4px 8px; text-decoration: none"><svg width="32" height="32" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#FFFFFF"></rect><path d="M27 11H17.5a4.5 4.5 0 0 0 0 9h5a4.5 4.5 0 0 1 0 9H12" fill="none" stroke="#14213D" stroke-width="4" stroke-linecap="round"></path><circle cx="29" cy="11" r="3.2" fill="#14B8A6"></circle></svg><span style="font-size: 17px; font-weight: 700; letter-spacing: 0.06em; color: #FFFFFF">SEKOLA</span></a>
+  <span style="align-self: flex-start; margin-left: 8px; font-size: 11px; font-weight: 600; color: #14213D; background: #5EEAD4; padding: 3px 8px; border-radius: 999px">Platform Console</span>
+  <div style="display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+    <sc-for list="{{ items }}" as="i" hint-placeholder-count="14">
+      <sc-if value="{{ i.head }}" hint-placeholder-val="{{ false }}"><span style="padding: 12px 10px 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: #94A3B8">{{ i.label }}</span></sc-if>
+      <sc-if value="{{ i.link }}" hint-placeholder-val="{{ true }}"><a href="{{ i.href }}" aria-current="{{ i.current }}" style="{{ i.style }}"><span>{{ i.label }}</span><span style="{{ i.badgeStyle }}">{{ i.badge }}</span></a></sc-if>
+    </sc-for>
+  </div>
+  <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px; border-top: 1px solid #23345C">
+    <span style="width: 32px; height: 32px; border-radius: 99px; background: #334155; color: #FFFFFF; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">AW</span>
+    <span style="display: flex; flex-direction: column"><span style="font-size: 13px; color: #FFFFFF; font-weight: 500">Andi Wijaya</span><span style="font-size: 12px; color: #94A3B8">Super Admin</span></span>
+  </div>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","default":"ringkasan","options":["ringkasan","direktori","onboarding","paket","penagihan","analitik","fitur","integrasi","tiket","audit","konfigurasi"]},"$preview":{"width":248,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.active ?? 'ringkasan';
+    const list = [
+      ['h', 'PLATFORM'], ['ringkasan', 'Ringkasan', 'Console.dc.html'], ['direktori', 'Direktori Sekolah', 'ConsoleTenant.dc.html'], ['onboarding', 'Onboarding Sekolah', 'ConsoleOnboarding.dc.html'],
+      ['h', 'BISNIS'], ['paket', 'Paket Langganan', 'ConsolePlans.dc.html'], ['penagihan', 'Penagihan', 'ConsoleBilling.dc.html'], ['analitik', 'Analitik Penggunaan', 'ConsoleAnalytics.dc.html'], ['fitur', 'Fitur & Hak Akses', 'ConsolePlans.dc.html'],
+      ['h', 'OPERASIONAL'], ['integrasi', 'Status Integrasi', 'ConsoleAnalytics.dc.html'], ['tiket', 'Tiket Dukungan', 'ConsoleSupport.dc.html', '14'], ['audit', 'Log Audit', 'ConsoleConfig.dc.html'], ['konfigurasi', 'Konfigurasi Platform', 'ConsoleConfig.dc.html']
+    ];
+    return {
+      items: list.map(([id, label, href, badge]) => {
+        if (id === 'h') return { head: true, link: false, label };
+        const on = id === active;
+        return { head: false, link: true, label, href, badge: badge || '', current: on ? 'page' : 'false',
+          style: 'display:flex;align-items:center;justify-content:space-between;padding:9px 10px;border-radius:6px;text-decoration:none;color:' + (on ? '#FFFFFF' : '#CBD5E1') + ';background:' + (on ? '#1E3A8A' : 'transparent') + ';font-weight:' + (on ? '500' : '400'),
+          badgeStyle: badge ? 'font-size:11px;font-weight:700;background:#2563EB;color:#FFFFFF;padding:1px 7px;border-radius:999px' : 'display:none' };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

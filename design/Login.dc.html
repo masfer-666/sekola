@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SEKOLA — Masuk</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="min-height: 900px; display: flex; flex-wrap: wrap; font-family: Inter, system-ui, sans-serif; color: #172033; background: #F8FAFC">
+
+  <aside style="flex: 1 1 440px; background: #14213D; color: #FFFFFF; padding: 48px clamp(24px, 5vw, 72px); display: flex; flex-direction: column; justify-content: space-between; gap: 48px; box-sizing: border-box">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#FFFFFF"></rect><path d="M27 11H17.5a4.5 4.5 0 0 0 0 9h5a4.5 4.5 0 0 1 0 9H12" fill="none" stroke="#14213D" stroke-width="4" stroke-linecap="round"></path><circle cx="29" cy="11" r="3.2" fill="#14B8A6"></circle></svg>
+      <span style="font-size: 24px; font-weight: 700; letter-spacing: 0.06em">SEKOLA</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 20px; max-width: 480px">
+      <h1 style="margin: 0; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.2; font-weight: 600">Semua Urusan Sekolah, Satu Platform.</h1>
+      <p style="margin: 0; font-size: 16px; line-height: 24px; color: #CBD5E1">Absensi, nilai, rapor, tagihan, dan pengumuman untuk admin, guru, siswa, dan orang tua dalam satu ekosistem.</p>
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px">
+        <span style="display: flex; gap: 10px; align-items: center; font-size: 14px; color: #E2E8F0"><span style="width: 8px; height: 8px; border-radius: 99px; background: #14B8A6"></span>Data setiap sekolah terpisah dan terlindungi</span>
+        <span style="display: flex; gap: 10px; align-items: center; font-size: 14px; color: #E2E8F0"><span style="width: 8px; height: 8px; border-radius: 99px; background: #14B8A6"></span>Akses sesuai peran dan izin masing-masing</span>
+        <span style="display: flex; gap: 10px; align-items: center; font-size: 14px; color: #E2E8F0"><span style="width: 8px; height: 8px; border-radius: 99px; background: #14B8A6"></span>Tersedia di web dan aplikasi mobile</span>
+      </div>
+    </div>
+    <span style="font-size: 13px; color: #94A3B8">One Platform. Every School. · © 2026 SEKOLA</span>
+  </aside>
+
+  <main style="flex: 1 1 480px; display: flex; align-items: center; justify-content: center; padding: 48px 16px; box-sizing: border-box">
+    <div style="width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 28px">
+
+      <sc-if value="{{ isLogin }}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column; gap: 28px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <h2 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Masuk ke akun Anda</h2>
+            <p style="margin: 0; font-size: 14px; color: #64748B">Gunakan email atau NIP/NISN yang terdaftar di sekolah Anda.</p>
+          </div>
+          <form style="display: flex; flex-direction: column; gap: 18px">
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Email atau NIP/NISN<input type="text" value="ratna.dewi@tunasharapan.sch.id" style="height: 44px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 12px; font: 400 14px Inter, sans-serif; color: #172033; background: #FFFFFF"></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">
+              <span style="display: flex; justify-content: space-between">Kata sandi<a href="#" style="font-weight: 500">Lupa kata sandi?</a></span>
+              <input type="password" value="rahasia123" style="height: 44px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 12px; font: 400 14px Inter, sans-serif; color: #172033; background: #FFFFFF">
+            </label>
+            <label style="display: flex; gap: 8px; align-items: center; font-size: 14px; color: #475569"><input type="checkbox" checked style="width: 16px; height: 16px; accent-color: #2563EB">Ingat saya di perangkat ini</label>
+            <button type="button" onClick="{{ next }}" style="height: 44px; border-radius: 6px; border: 0; background: #2563EB; color: #FFFFFF; font: 600 15px Inter, sans-serif; cursor: pointer">Masuk</button>
+            <div style="display: flex; align-items: center; gap: 12px; color: #94A3B8; font-size: 12px"><span style="flex: 1; height: 1px; background: #E2E8F0"></span>atau<span style="flex: 1; height: 1px; background: #E2E8F0"></span></div>
+            <button type="button" style="height: 44px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; color: #172033; font: 600 14px Inter, sans-serif">Masuk dengan Akun Google Sekolah</button>
+          </form>
+          <p style="margin: 0; font-size: 13px; color: #64748B">Sekolah Anda belum memakai SEKOLA? <a href="#">Ajukan demo</a></p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isPick }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 24px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <h2 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Pilih sekolah</h2>
+            <p style="margin: 0; font-size: 14px; color: #64748B">Akun Anda terhubung ke 2 sekolah. Hanya sekolah yang memberi Anda akses yang ditampilkan.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <sc-for list="{{ schools }}" as="s" hint-placeholder-count="2">
+              <button type="button" onClick="{{ s.pick }}" style="{{ s.style }}">
+                <span style="{{ s.logoStyle }}">{{ s.initials }}</span>
+                <span style="display: flex; flex-direction: column; gap: 2px; flex: 1; text-align: left">
+                  <span style="font-size: 15px; font-weight: 600; color: #172033">{{ s.name }}</span>
+                  <span style="font-size: 13px; color: #64748B">{{ s.role }} · {{ s.city }}</span>
+                </span>
+                <span style="font-size: 12px; font-weight: 600; color: #1D4ED8">{{ s.mark }}</span>
+              </button>
+            </sc-for>
+          </div>
+          <a href="Workspace.dc.html" style="height: 44px; border-radius: 6px; background: #2563EB; color: #FFFFFF; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none">Lanjut ke {{ pickedName }}</a>
+          <button type="button" onClick="{{ back }}" style="height: 40px; border: 0; background: transparent; color: #64748B; font: 500 14px Inter, sans-serif; cursor: pointer">Keluar dan gunakan akun lain</button>
+        </div>
+      </sc-if>
+
+      <div style="display: flex; justify-content: center; gap: 16px; font-size: 12px; color: #64748B">
+        <a href="#" style="color: #64748B">Bantuan</a><a href="#" style="color: #64748B">Kebijakan Privasi</a><a href="#" style="color: #64748B">Syarat Layanan</a>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { step: 'login', picked: 'th' }; }
+  renderVals() {
+    const list = [
+      { id: 'th', name: 'SMP Tunas Harapan', initials: 'TH', role: 'Admin Sekolah', city: 'Bandung', color: '#0E7490' },
+      { id: 'cn', name: 'SMA Cendekia Nusantara', initials: 'CN', role: 'Guru', city: 'Bogor', color: '#7C3AED' }
+    ];
+    const picked = list.find((x) => x.id === this.state.picked);
+    return {
+      isLogin: this.state.step === 'login',
+      isPick: this.state.step === 'pick',
+      next: () => this.setState({ step: 'pick' }),
+      back: () => this.setState({ step: 'login' }),
+      pickedName: picked ? picked.name : '',
+      schools: list.map((x) => {
+        const on = x.id === this.state.picked;
+        return {
+          ...x,
+          mark: on ? 'Dipilih' : '',
+          pick: () => this.setState({ picked: x.id }),
+          style: 'display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:10px;cursor:pointer;font-family:Inter,sans-serif;background:' + (on ? '#EFF6FF' : '#FFFFFF') + ';border:' + (on ? '2px solid #2563EB' : '1px solid #E2E8F0'),
+          logoStyle: 'width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-weight:700;font-size:14px;background:' + x.color
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

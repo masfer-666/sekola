@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SEKOLA Platform Console — Tiket Dukungan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1000px; font-family: Inter, system-ui, sans-serif; color: #172033; background: #F8FAFC">
+  <div style="flex: 0 0 248px; display: flex"><dc-import name="ConsoleNav" active="tiket" hint-size="248px,1000px"></dc-import></div>
+  <main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Tiket Dukungan</h1><span style="font-size: 13px; color: #64748B">14 terbuka · waktu respons pertama rata-rata 1 jam 12 menit</span></div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+      <section style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+        <sc-for list="{{ tickets }}" as="t" hint-placeholder-count="5">
+          <button type="button" onClick="{{ t.pick }}" style="{{ t.style }}">
+            <span style="display: flex; justify-content: space-between; gap: 8px; width: 100%"><span style="font-size: 12px; color: #64748B">{{ t.id }} · {{ t.school }}</span><span style="{{ t.badge }}">{{ t.prio }}</span></span>
+            <b style="font-size: 14px; text-align: left">{{ t.title }}</b>
+            <span style="font-size: 12px; color: #64748B">{{ t.meta }}</span>
+          </button>
+        </sc-for>
+      </section>
+
+      <section style="flex: 2 1 480px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; display: flex; flex-direction: column">
+        <div style="padding: 18px 20px; border-bottom: 1px solid #E2E8F0; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 12px; color: #64748B">{{ cur.id }} · {{ cur.school }} · dilaporkan oleh {{ cur.by }}</span>
+          <b style="font-size: 17px">{{ cur.title }}</b>
+          <span style="display: flex; gap: 8px; flex-wrap: wrap"><span style="{{ cur.badge }}">{{ cur.prio }}</span><span style="font-size: 12px; font-weight: 600; color: #475569; background: #F1F5F9; padding: 3px 8px; border-radius: 999px">Ditangani: Maya Sari</span></span>
+        </div>
+        <div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; border-bottom: 1px solid #E2E8F0">
+          <div style="display: flex; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 99px; background: #E0E7FF; color: #3730A3; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0">{{ cur.ini }}</span><span style="display: flex; flex-direction: column; gap: 4px; background: #F8FAFC; border-radius: 10px; padding: 10px 12px; font-size: 13px; line-height: 20px"><b>{{ cur.by }}</b>{{ cur.msg }}</span></div>
+          <div style="display: flex; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 99px; background: #14213D; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0">MS</span><span style="display: flex; flex-direction: column; gap: 4px; background: #EFF6FF; border-radius: 10px; padding: 10px 12px; font-size: 13px; line-height: 20px"><b>Maya Sari · Tim SEKOLA</b>Terima kasih. Kami perlu melihat konfigurasi sekolah Anda. Mohon setujui permintaan akses dukungan berikut.</span></div>
+        </div>
+        <div style="margin: 16px 20px; padding: 14px; border: 1px solid #FDE68A; background: #FFFBEB; border-radius: 10px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #78350F">
+          <b>Permintaan akses dukungan</b>
+          <span>Hanya baca · 24 jam · modul {{ cur.module }}. Menunggu persetujuan Admin Sekolah. Semua tindakan tercatat di log audit sekolah dan platform.</span>
+        </div>
+        <div style="padding: 0 20px 20px; display: flex; flex-direction: column; gap: 10px">
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Balasan<textarea rows="3" placeholder="Tulis balasan untuk sekolah…" style="border: 1px solid #CBD5E1; border-radius: 6px; padding: 10px 12px; font: 400 14px Inter, sans-serif"></textarea></label>
+          <div style="display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap">
+            <select aria-label="Status tiket" style="height: 38px; border: 1px solid #CBD5E1; border-radius: 6px; padding: 0 10px; font: 500 13px Inter, sans-serif; background: #FFFFFF"><option>Menunggu sekolah</option><option>Sedang dikerjakan</option><option>Selesai</option></select>
+            <button type="button" style="height: 38px; padding: 0 16px; border-radius: 6px; border: 0; background: #2563EB; color: #FFFFFF; font: 600 13px Inter, sans-serif">Kirim Balasan</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { sel: 0 }; }
+  renderVals() {
+    const pr = { Tinggi: ['#B91C1C', '#FEE2E2'], Normal: ['#475569', '#F1F5F9'], Rendah: ['#1D4ED8', '#DBEAFE'] };
+    const list = [
+      ['#2041', 'SMP Tunas Harapan', 'Rapor tidak bisa dicetak', 'Tinggi', 'Ratna Dewi, M.Pd.', 'RD', 'Rapor VIII-A muncul halaman kosong saat dicetak PDF sejak pagi tadi. Batas pembagian rapor tengah semester hari Jumat.', 'Nilai & Rapor', '2 jam lalu · 3 balasan'],
+      ['#2038', 'SMK Bina Karya', 'Impor data siswa gagal', 'Tinggi', 'Agus Wahyudi', 'AW', 'File ekspor Dapodik ditolak dengan pesan kolom NIK tidak valid pada 14 baris.', 'Data Siswa', '5 jam lalu · 1 balasan'],
+      ['#2035', 'SD Pelita Ilmu', 'Ganti logo sekolah', 'Normal', 'Sri Wahyuni, S.Pd.', 'SW', 'Kami tidak menemukan tombol unggah logo karena akun sedang ditangguhkan.', 'Pengaturan Sekolah', 'Kemarin · 2 balasan'],
+      ['#2031', 'SMA Cendekia Nusantara', 'Tambah kuota WhatsApp', 'Rendah', 'Fikri Ramadhan', 'FR', 'Mohon info cara membeli tambahan kuota notifikasi WhatsApp.', 'Penagihan', '2 hari lalu · 4 balasan']
+    ];
+    const c = list[this.state.sel];
+    const badge = (p) => 'font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap;color:' + pr[p][0] + ';background:' + pr[p][1];
+    return {
+      cur: { id: c[0], school: c[1], title: c[2], prio: c[3], by: c[4], ini: c[5], msg: c[6], module: c[7], badge: badge(c[3]) },
+      tickets: list.map((t, i) => {
+        const on = i === this.state.sel;
+        return { id: t[0], school: t[1], title: t[2], prio: t[3], meta: t[8], badge: badge(t[3]), pick: () => this.setState({ sel: i }),
+          style: 'display:flex;flex-direction:column;gap:6px;align-items:flex-start;padding:14px 16px;border-radius:10px;cursor:pointer;font-family:Inter,sans-serif;color:#172033;background:' + (on ? '#EFF6FF' : '#FFFFFF') + ';border:' + (on ? '2px solid #2563EB' : '1px solid #E2E8F0') };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

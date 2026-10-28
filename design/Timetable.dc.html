@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Workspace Sekolah — Jadwal Pelajaran</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1000px; font-family: Inter, system-ui, sans-serif; color: #172033; background: #F8FAFC">
+  <div style="flex: 0 0 72px; display: flex"><dc-import name="WsNav" active="jadwal" hint-size="72px,1000px"></dc-import></div>
+  <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column">
+    <dc-import name="WsHeader" section="Akademik" page="Jadwal Pelajaran" hint-size="100%,56px"></dc-import>
+    <div style="padding: 24px 32px 40px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600">Jadwal Pelajaran</h1><span style="font-size: 13px; color: #64748B">Berlaku mulai 13 Juli 2026 · versi 3 · disetujui Wakasek Kurikulum</span></div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <button type="button" style="height: 38px; padding: 0 14px; border-radius: 6px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 13px Inter, sans-serif; color: #172033">Cetak PDF</button>
+          <button type="button" style="height: 38px; padding: 0 14px; border-radius: 6px; border: 0; background: #2563EB; color: #FFFFFF; font: 600 13px Inter, sans-serif">Edit Jadwal</button>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+        <span style="font-size: 13px; color: #64748B">Kelas:</span>
+        <sc-for list="{{ classTabs }}" as="c" hint-placeholder-count="4">
+          <button type="button" aria-pressed="{{ c.sel }}" onClick="{{ c.pick }}" style="{{ c.style }}">{{ c.label }}</button>
+        </sc-for>
+        <span style="margin-left: auto; font-size: 13px; color: #64748B">Wali kelas: <b style="color: #172033">{{ wali }}</b></span>
+      </div>
+
+      <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 10px; background: #FFFBEB; border: 1px solid #FDE68A; font-size: 13px; color: #78350F">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B45309" stroke-width="2" aria-hidden="true" style="flex-shrink: 0"><path d="M12 3 2 21h20zM12 10v5M12 18v.01"></path></svg>
+        <span><b>1 bentrok jadwal:</b> Yusuf Hidayat, S.Si. dijadwalkan di IX-A dan VIII-B pada Kamis jam ke-5. <a href="#">Selesaikan</a></span>
+      </div>
+
+      <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; overflow-x: auto">
+        <div style="min-width: 880px; display: grid; grid-template-columns: 110px repeat(5, minmax(0, 1fr)); font-size: 12px">
+          <span style="padding: 10px 12px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; color: #64748B; font-weight: 600">Jam</span>
+          <span style="padding: 10px 12px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; color: #64748B; font-weight: 600">Senin</span>
+          <span style="padding: 10px 12px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; color: #64748B; font-weight: 600">Selasa</span>
+          <span style="padding: 10px 12px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; color: #172033; font-weight: 700">Rabu · hari ini</span>
+          <span style="padding: 10px 12px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; color: #64748B; font-weight: 600">Kamis</span>
+          <span style="padding: 10px 12px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; color: #64748B; font-weight: 600">Jumat</span>
+          <sc-for list="{{ cells }}" as="c" hint-placeholder-count="54">
+            <span style="{{ c.style }}"><span style="font-weight: 600">{{ c.a }}</span><span style="{{ c.subStyle }}">{{ c.b }}</span></span>
+          </sc-for>
+        </div>
+      </section>
+      <span style="font-size: 12px; color: #64748B">1 JP = 40 menit. Bingkai tebal = pelajaran yang sedang berlangsung. Warna hanya pembeda mapel; nama mapel selalu tertulis.</span>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { cls: 'VIII-A' }; }
+  renderVals() {
+    const classes = { 'VIII-A': 'Budi Santoso, S.Pd.', 'VIII-B': 'Rina Kartika, S.Pd.', 'IX-A': 'Yusuf Hidayat, S.Si.', 'VII-A': 'Teguh Prasetyo, S.Pd.' };
+    const tint = { MTK: '#DBEAFE', BIN: '#CCFBF1', IPA: '#E0E7FF', IPS: '#FEF3C7', ING: '#FCE7F3', PAI: '#DCFCE7', PPKn: '#F1F5F9', PJOK: '#FFEDD5', INF: '#E0F2FE', SBD: '#F3E8FF', SUN: '#ECFCCB', P5: '#F1F5F9' };
+    const full = { MTK: 'Matematika', BIN: 'B. Indonesia', IPA: 'IPA', IPS: 'IPS', ING: 'B. Inggris', PAI: 'Pend. Agama', PPKn: 'Pancasila', PJOK: 'PJOK', INF: 'Informatika', SBD: 'Seni Musik', SUN: 'B. Sunda', P5: 'Projek P5' };
+    const teacher = { MTK: 'Budi S.', BIN: 'Rina K.', IPA: 'Yusuf H.', IPS: 'Dewi L.', ING: 'Andreas W.', PAI: 'Ahmad F.', PPKn: 'Maria U.', PJOK: 'Teguh P.', INF: 'Nur A.', SBD: 'Lilis S.', SUN: 'Dedi K.', P5: 'Tim P5' };
+    const base = [
+      ['PPKn', 'BIN', 'IPA', 'MTK', 'PAI'],
+      ['PPKn', 'BIN', 'MTK', 'MTK', 'PAI'],
+      ['MTK', 'ING', 'MTK', 'IPS', 'BIN'],
+      ['MTK', 'ING', 'IPS', 'IPS', 'BIN'],
+      ['IPA', 'PJOK', 'BIN', 'IPA', 'SUN'],
+      ['IPA', 'PJOK', 'BIN', 'ING', 'SUN'],
+      ['INF', 'IPA', 'SBD', 'ING', 'P5'],
+      ['INF', 'PAI', 'SBD', 'PJOK', 'P5']
+    ];
+    const shift = { 'VIII-A': 0, 'VIII-B': 1, 'IX-A': 2, 'VII-A': 3 }[this.state.cls];
+    const times = ['07.00', '07.40', '08.20', '09.00', '09.40', '10.20', '11.15', '11.55'];
+    const cells = [];
+    const cellBase = 'padding:8px 10px;border-bottom:1px solid #E2E8F0;border-left:1px solid #F1F5F9;display:flex;flex-direction:column;gap:2px;min-height:44px;box-sizing:border-box;';
+    times.forEach((t, r) => {
+      if (r === 4) {
+        cells.push({ a: 'Istirahat', b: '09.00–09.20 (setelah jam ke-4)', style: 'grid-column:1 / -1;padding:6px 12px;background:#F8FAFC;border-bottom:1px solid #E2E8F0;font-size:12px;color:#64748B;display:flex;gap:8px', subStyle: 'color:#64748B' });
+      }
+      cells.push({ a: 'Jam ' + (r + 1), b: t, style: cellBase + 'color:#64748B', subStyle: 'color:#64748B' });
+      for (let d = 0; d < 5; d++) {
+        const code = base[(r + shift) % 8][(d + shift) % 5];
+        const now = d === 2 && r === 4 && shift === 0;
+        const clash = d === 3 && r === 4 && (this.state.cls === 'VIII-B' || this.state.cls === 'IX-A');
+        cells.push({ a: full[code], b: teacher[code], subStyle: 'color:#475569',
+          style: cellBase + 'background:' + tint[code] + (now ? ';box-shadow:inset 0 0 0 2px #14213D' : '') + (clash ? ';box-shadow:inset 0 0 0 2px #D97706' : '') });
+      }
+    });
+    return {
+      wali: classes[this.state.cls],
+      classTabs: Object.keys(classes).map((c) => {
+        const on = c === this.state.cls;
+        return { label: c, sel: on ? 'true' : 'false', pick: () => this.setState({ cls: c }),
+          style: 'height:34px;padding:0 14px;border-radius:999px;cursor:pointer;font:600 13px Inter,sans-serif;border:1px solid ' + (on ? '#14213D' : '#CBD5E1') + ';background:' + (on ? '#14213D' : '#FFFFFF') + ';color:' + (on ? '#FFFFFF' : '#172033') };
+      }),
+      cells
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SEKOLA Mobile — Input Nilai</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F8FAFC; font-family: Inter, system-ui, sans-serif; color: #172033; display: flex; flex-direction: column; overflow: hidden">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0; padding: 24px 12px 12px; display: flex; flex-direction: column; gap: 10px">
+    <span style="display: flex; align-items: center; gap: 8px">
+      <a href="MobileTeacher.dc.html" aria-label="Kembali" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#172033" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+      <span style="display: flex; flex-direction: column"><b style="font-size: 17px">Input Nilai</b><span style="font-size: 12px; color: #64748B">Latihan SPLDV hal. 54 · VIII-A</span></span>
+    </span>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 0 4px">
+      <span style="background: #F8FAFC; border-radius: 10px; padding: 8px 10px; display: flex; flex-direction: column"><b style="font-size: 16px">21/34</b><span style="font-size: 11px; color: #64748B">Terkumpul</span></span>
+      <span style="background: #F8FAFC; border-radius: 10px; padding: 8px 10px; display: flex; flex-direction: column"><b style="font-size: 16px">9</b><span style="font-size: 11px; color: #64748B">Dinilai</span></span>
+      <span style="background: #F8FAFC; border-radius: 10px; padding: 8px 10px; display: flex; flex-direction: column"><b style="font-size: 16px">86,3</b><span style="font-size: 11px; color: #64748B">Rata-rata</span></span>
+    </div>
+  </header>
+  <div style="flex: 1; min-height: 0; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; overflow: hidden">
+    <sc-for list="{{ rows }}" as="r" hint-placeholder-count="8">
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 10px 12px; display: flex; align-items: center; gap: 12px">
+        <span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><b style="font-size: 15px">{{ r.name }}</b><span style="{{ r.subStyle }}">{{ r.sub }}</span></span>
+        <input type="text" inputmode="numeric" aria-label="Nilai {{ r.name }}" value="{{ r.v }}" placeholder="—" style="{{ r.inputStyle }}">
+      </div>
+    </sc-for>
+  </div>
+  <div style="padding: 12px 16px 28px; background: #FFFFFF; border-top: 1px solid #E2E8F0; display: flex; gap: 8px">
+    <button type="button" style="flex: 1; height: 50px; border-radius: 10px; border: 1px solid #CBD5E1; background: #FFFFFF; font: 600 15px Inter, sans-serif; color: #172033">Simpan Draf</button>
+    <button type="button" style="flex: 1; height: 50px; border-radius: 10px; border: 0; background: #2563EB; color: #FFFFFF; font: 600 15px Inter, sans-serif">Kirim Nilai</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const data = [['Alya Putri', 'Dikumpulkan 27 Okt, 19.42', '95'], ['Bagas Aditya', 'Dikumpulkan 28 Okt, 06.10', ''], ['Citra Lestari', 'Dikumpulkan 27 Okt, 20.15', '92'], ['Dimas Saputra', 'Dikumpulkan 28 Okt, 05.58', '78'],
+      ['Eka Maharani', 'Belum mengumpulkan', ''], ['Fajar Nugroho', 'Dikumpulkan 27 Okt, 21.03', '81'], ['Gita Permata', 'Dikumpulkan 26 Okt, 18.30', '98'], ['Hana Safitri', 'Dikumpulkan 28 Okt, 07.20', '']];
+    return {
+      rows: data.map(([name, sub, v]) => {
+        const missing = sub.indexOf('Belum') === 0;
+        return { name, sub, v,
+          subStyle: 'font-size:12px;color:' + (missing ? '#B91C1C' : '#64748B'),
+          inputStyle: 'width:64px;height:44px;text-align:center;border-radius:10px;font:600 16px Inter,sans-serif;color:#172033;border:1px solid ' + (v ? '#CBD5E1' : '#FCD34D') + ';background:' + (v ? '#FFFFFF' : '#FFFBEB') };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>
